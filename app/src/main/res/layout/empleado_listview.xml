@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_Empleado_numeroEmpleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NumEmpleado_0000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_Empleado_nombreEmpleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#e61a5f"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_Empleado_apellidoEmpleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellido"
+        android:textColor="#e61a5f"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/tv_Empleado_fechaNacimiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha Nacimiento: DD-MM-AA"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_telefonoCasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono Casa"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_telefonoMovil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono Movil"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_calle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calle"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_NumeroExteriorInterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exterior/Interior"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_MunicipioDelegacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Municipio/Delegacion"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_Estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_CodigoPostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Codigo Postal"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_tipoEmpleado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mesero"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_EstatusEnSistema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estatus en Sistema"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_Usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+    <TextView
+        android:id="@+id/tv_Empleado_Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+
+
+
+
+</LinearLayout>

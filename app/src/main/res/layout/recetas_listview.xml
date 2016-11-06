@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_Recetas_NumeroDeReceta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero de Receta: 0000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_Recetas_NumeroArticuloEnReceta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero de Receta: 0000"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_Recetas_Ingrediente_NumeroIngrediente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingrediente: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_Recetas_Ingrediente_CantidadEnReceta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_Recetas_FormatoMedicion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Formato Medicion: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_Recetas_Comentarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comentarios: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_Recetas_EstatusEnSistema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EstatusEnSistema: "
+        android:textSize="16dp"
+        android:textStyle="bold" />
+</LinearLayout>
