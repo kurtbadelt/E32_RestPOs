@@ -48,10 +48,18 @@ public class EstatusComanda {
         output=this.getNumeroEstatus()+";"+this.getNombreEstatus()+";"+this.getDescripcion()+";"+this.getEstatusEnSistema();
         return output;
     }
+
+    /**
+     *
+     *
+     * @return
+     */
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
-
+        output.put("NumeroEstatus",this.getNumeroEstatus());
+        output.put("NombreEstatus",this.getNombreEstatus());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
         return output;
 
     }

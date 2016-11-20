@@ -153,7 +153,21 @@ public class EncuestaSatisfaccion {
 
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroEncuesta",this.getNumeroEncuesta());
+        output.put("DescripcionPregunta1",this.getDescripcionPregunta1());
+        output.put("EvaluacionPregunta1",this.getEvaluacionPregunta1());
+        output.put("DescripcionPregunta2",this.getDescripcionPregunta2());
+        output.put("EvaluacionPregunta2",this.getEvaluacionPregunta2());
+        output.put("DescripcionPregunta3",this.getDescripcionPregunta3());
+        output.put("EvaluacionPregunta3",this.getEvaluacionPregunta3());
+        output.put("DescripcionPregunta4",this.getDescripcionPregunta4());
+        output.put("EvaluacionPregunta4",this.getEvaluacionPregunta4());
+        output.put("DescripcionPregunta5",this.getDescripcionPregunta5());
+        output.put("EvaluacionPregunta5",this.getEvaluacionPregunta5());
+        output.put("Venta_NumeroTicket",this.getVenta_NumeroTicket());
+        output.put("Venta_NumeroTipoPago",this.getVenta_NumeroTipoPago());
+        output.put("ComentariosCliente",this.getComentariosCliente());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 
