@@ -8,6 +8,9 @@ import android.content.ContentValues;
 
 public class TipoMesa {
     private int numeroTipoMesa=0;
+    private String nombreTipoMesa="";
+    private String descripcion="";
+    private String estatusEnSistema="";
 
     public String getNombreTipoMesa() {
         return nombreTipoMesa;
@@ -16,10 +19,6 @@ public class TipoMesa {
     public void setNombreTipoMesa(String nombreTipoMesa) {
         this.nombreTipoMesa = nombreTipoMesa;
     }
-
-    private String nombreTipoMesa="";
-    private String descripcion="";
-    private String estatusEnSistema="";
 
     public int getNumeroTipoMesa() {
         return numeroTipoMesa;
@@ -52,6 +51,10 @@ public class TipoMesa {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("NumeroTipoMesa",this.getNumeroTipoMesa());
+        output.put("NombreTipoMesa",this.getNombreTipoMesa());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

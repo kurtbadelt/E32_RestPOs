@@ -79,6 +79,13 @@ public class Mesa {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("NumeroDeMesa",this.getNumeroDeMesa());
+        output.put("NumeroComensales",this.getNumeroDeComensales());
+        output.put("Empleado_NumeroEmpleado",this.getEmpleado_NumeroEmpleado());
+        output.put("Empleado_NumeroTipoEmpleado",this.getEmpleado_NumeroTipoEmpleado());
+        output.put("Comensales_NumeroComensal",this.getComensales_NumeroComensal());
+        output.put("TipoMesa_NumeroTipoMesa",this.getTipoMesa_NumeroTipoMesa());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

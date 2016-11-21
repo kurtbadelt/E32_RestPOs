@@ -41,7 +41,9 @@ public class IngredientesEnBodega {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("Ingrediente_NumeroIngrediente",this.getIngrediente_NumeroIngrediente());
+        output.put("BodegaInventario_NumeroBodega",this.getBodegaInventario_NumeroBodega());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

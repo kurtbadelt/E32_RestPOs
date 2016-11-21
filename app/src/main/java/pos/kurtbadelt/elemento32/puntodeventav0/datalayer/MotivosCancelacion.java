@@ -50,7 +50,10 @@ public class MotivosCancelacion {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroMotivo",this.getNumeroMotivo());
+        output.put("NombreMotivo",this.getNombreMotivo());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

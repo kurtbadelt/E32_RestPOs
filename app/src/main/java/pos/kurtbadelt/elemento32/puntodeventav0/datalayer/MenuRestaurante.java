@@ -50,8 +50,10 @@ public class MenuRestaurante {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
-
+        output.put("NumeroMenu",this.getNumeroMenu());
+        output.put("NombreMenu",this.getNombreMenu());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
         return output;
 
     }

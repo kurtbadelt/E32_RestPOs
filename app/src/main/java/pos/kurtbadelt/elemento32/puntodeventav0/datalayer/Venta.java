@@ -60,7 +60,11 @@ public class Venta {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroTicket",this.getNumeroTicket());
+        output.put("NumeroFactura",this.getNumeroFactura());
+        output.put("MontoTotal",this.getMontoTotal());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("TipoDePago_NumeroTipoPago",this.getTipoDePago_NumeroTipoPago());
 
         return output;
 

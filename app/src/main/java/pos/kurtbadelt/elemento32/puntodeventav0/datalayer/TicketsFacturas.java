@@ -51,6 +51,10 @@ public class TicketsFacturas {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("Venta_NumeroTicket",this.getVenta_NumeroTicket());
+        output.put("Venta_NumeroTIpoPago",this.getVenta_NumeroTipoPago());
+        output.put("Facturas_NumeroFactura",this.getFacturas_NumeroFactura());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

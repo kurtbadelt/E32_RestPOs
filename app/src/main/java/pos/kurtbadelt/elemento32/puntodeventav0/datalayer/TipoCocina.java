@@ -51,7 +51,10 @@ public class TipoCocina {
 
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroTipoCocina",this.getNumeroTipoCocina());
+        output.put("NombreTipoCocina",this.getNombreTipoCocina());
+        output.put("DescripcionTipoCocina",this.getDescripcionTipoCocina());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

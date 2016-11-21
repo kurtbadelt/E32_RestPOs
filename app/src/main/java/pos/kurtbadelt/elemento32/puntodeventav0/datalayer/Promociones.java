@@ -79,6 +79,13 @@ public class Promociones {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("NumeroPromocion",this.getNumeroPromocion());
+        output.put("NombrePromocion",this.getNombrePromocion());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("InicioPromocion",this.getInicioPromocion());
+        output.put("finPromocion",this.getFinPromocion());
+        output.put("Descuento",this.getDescuento());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

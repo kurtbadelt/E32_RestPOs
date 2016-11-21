@@ -79,6 +79,13 @@ public class RecetasIngredientesEnArticulos {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("NumeroReceta",this.getNumeroReceta());
+        output.put("Articulos_NumeroArticulo",this.getArticulo_NumeroArticulo());
+        output.put("Ingrediente_NumeroIngrediente",this.getIngrediente_NumeroIngrediente());
+        output.put("Cantidad",this.getCantidad());
+        output.put("FormaMedicion",this.getFormaMedicion());
+        output.put("Comentarios",this.getComentarios());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

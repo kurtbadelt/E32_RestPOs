@@ -87,7 +87,14 @@ public class Facturas {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroFactura",this.getNumeroFactura());
+        output.put("UUID",this.getUUID());
+        output.put("RFC",this.getRFC());
+        output.put("SubTotal",this.getSubTotal());
+        output.put("IVA",this.getIva());
+        output.put("Total",this.getTotal());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

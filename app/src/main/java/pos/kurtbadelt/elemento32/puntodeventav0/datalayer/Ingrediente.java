@@ -115,7 +115,17 @@ public class Ingrediente {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroIngrediente",this.getNumeroIngrediente());
+        output.put("NombreIngrediente",this.getNombreIngrediente());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("Existencia",this.getExistencia());
+        output.put("PrecioCompra",this.precioCompra);
+        output.put("PrecioVenta",this.getPrecioVenta());
+        output.put("TiempoDeEntregaEnDias",this.getTiempoEntregaDias());
+        output.put("FormatoMedicion",this.getFormatoMedicion());
+        output.put("InventarioMaximo",this.getInventarioMaximo());
+        output.put("InventarioMinimo",this.getInventarioMinimo());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

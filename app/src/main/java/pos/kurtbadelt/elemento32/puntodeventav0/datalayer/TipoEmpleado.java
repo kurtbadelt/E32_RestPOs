@@ -50,7 +50,10 @@ public class TipoEmpleado {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroTipoEmpleado",this.getNumeroTipoEmpleado());
+        output.put("NombreTipoEmpleado",this.getNombreTipoEmpleado());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

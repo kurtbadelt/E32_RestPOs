@@ -79,6 +79,13 @@ public class Reservaciones {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("NumeroReservacion",this.getNumeroReservacion());
+        output.put("FechaReservacion",this.getFechaReservacion());
+        output.put("VigenciaReservacion",this.getVigenciaReservacion());
+        output.put("NombreComensal",this.getNombreComensal());
+        output.put("NumeroDeComensales",this.getNumeroDeComensales());
+        output.put("Comensales_NumeroComensal",this.getComensales_NumeroComensal());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

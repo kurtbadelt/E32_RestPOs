@@ -7,7 +7,9 @@ import android.content.ContentValues;
  */
 
 public class ReservacionMesa {
+
     private int mesa_numeroMesa=0;
+    private int mesa_Empleado_NumeroEmpleado=0;
     private int mesa_Empleado_NumeroTipoEmpleado=0;
     private int mesa_NumeroTipoMesa=0;
     private int reservaciones_NumeroReservacion=0;
@@ -15,6 +17,14 @@ public class ReservacionMesa {
 
     public int getMesa_numeroMesa() {
         return mesa_numeroMesa;
+    }
+
+    public int getMesa_Empleado_NumeroEmpleado() {
+        return mesa_Empleado_NumeroEmpleado;
+    }
+
+    public void setMesa_Empleado_NumeroEmpleado(int mesa_Empleado_NumeroEmpleado) {
+        this.mesa_Empleado_NumeroEmpleado = mesa_Empleado_NumeroEmpleado;
     }
 
     public void setMesa_numeroMesa(int mesa_numeroMesa) {
@@ -61,6 +71,12 @@ public class ReservacionMesa {
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
 
+        output.put("Mesa_NumeroDeMesa",this.getMesa_numeroMesa());
+        output.put("Mesa_Empleado_NumeroEmpleado",this.getMesa_Empleado_NumeroEmpleado());
+        output.put("Mesa_Empleado_NumeroTipoEmpleado",this.getMesa_Empleado_NumeroTipoEmpleado());
+        output.put("Mesa_NumeroTipoMesa",this.getMesa_NumeroTipoMesa());
+        output.put("Reservaciones_NumeroReservacion",this.getReservaciones_NumeroReservacion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 
