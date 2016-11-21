@@ -50,7 +50,10 @@ public class EstatusDeComandas {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("EstatusComanda_NumeroEstatus",this.getEstatusComanda_NumeroEstatus());
+        output.put("Comanda_NumeroComanda",this.getComanda_NumeroComanda());
+        output.put("FechaHoraIngreso",this.getFechaHoraIngreso());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 
