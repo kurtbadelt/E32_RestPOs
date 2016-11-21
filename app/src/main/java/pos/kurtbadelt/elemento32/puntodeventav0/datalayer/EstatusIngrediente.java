@@ -50,7 +50,10 @@ public class EstatusIngrediente {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroEstatusIngrediente",this.getNumeroEstatusIngrediente());
+        output.put("NombreEstatusIngrediente",this.getNombreEstatusIngrediente());
+        output.put("Descripcion",this.getDescripcion());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 

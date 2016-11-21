@@ -153,7 +153,21 @@ public class EvaluacionEmpleado {
     }
     public ContentValues toDB(){
         ContentValues output = new ContentValues();
-
+        output.put("NumeroEvaluacion",this.getNumeroEvaluacion());
+        output.put("DescripcionPregunta1",this.getDescripcionPregunta1());
+        output.put("EvaluacionPregunta1",this.getEvaluacionPregunta1());
+        output.put("DescripcionPregunta2",this.getDescripcionPregunta2());
+        output.put("EvaluacionPregunta2",this.getEvaluacionPregunta2());
+        output.put("DescripcionPregunta3",this.getDescripcionPregunta3());
+        output.put("EvaluacionPregunta3",this.getEvaluacionPregunta3());
+        output.put("DescripcionPregunta4",this.getDescripcionPregunta4());
+        output.put("EvaluacionPregunta4",this.getEvaluacionPregunta4());
+        output.put("DescripcionPregunta5",this.getDescripcionPregunta5());
+        output.put("EvaluacionPregunta5",this.getEvaluacionPregunta5());
+        output.put("ComentariosSupervisor",this.getComentariosSupervisor());
+        output.put("Empleado_NumeroEmpleado",this.getEmpleado_NumeroEmpleado());
+        output.put("Empleado_NumeroTipoEmpleado",this.getEmpleado_NumeroTipoEmpleado());
+        output.put("EstatusEnSistema",this.getEstatusEnSistema());
 
         return output;
 
