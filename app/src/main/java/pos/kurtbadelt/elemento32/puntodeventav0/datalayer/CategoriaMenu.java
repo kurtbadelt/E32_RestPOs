@@ -6,7 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class CategoriaMenu  {
+public class CategoriaMenu  extends DataLayerObject{
+
+
+    private String nombreTabla="CategoriaMenu";
     private int numeroCategoria=0;
     private String NombreCategoria="";
     private String Descripcion="";
@@ -23,6 +26,14 @@ public class CategoriaMenu  {
 
     public String getNombreCategoria() {
         return NombreCategoria;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public void setNombreCategoria(String nombreCategoria) {

@@ -6,14 +6,17 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Asistencia {
-    int numeroAsistencia=0;
-    String fechaHoraEntrada="";
-    String fechaHoraSalida="";
-    String comentarios="";
-    String estatusEnSistema="";
-    int empleado_NumeroEmpleado=0;
-    int empleado_NumeroTipoEmpleado=0;
+public class Asistencia extends DataLayerObject{
+
+
+    private String nombreTabla="Asistencia";
+   private int numeroAsistencia=0;
+    private String fechaHoraEntrada="";
+    private String fechaHoraSalida="";
+    private String comentarios="";
+    private String estatusEnSistema="";
+    private int empleado_NumeroEmpleado=0;
+    private int empleado_NumeroTipoEmpleado=0;
 
     public int getNumeroAsistencia() {
         return numeroAsistencia;
@@ -21,6 +24,13 @@ public class Asistencia {
 
     public void setNumeroAsistencia(int numeroAsistencia) {
         this.numeroAsistencia = numeroAsistencia;
+    }
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public String getFechaHoraEntrada() {

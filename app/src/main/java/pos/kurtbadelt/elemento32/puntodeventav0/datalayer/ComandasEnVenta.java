@@ -6,7 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ComandasEnVenta {
+public class ComandasEnVenta extends DataLayerObject{
+
+
+    private String nombreTabla="ComandasEnVenta";
     private int venta_NumeroTicket=0;
     private int venta_NumeroTipoPago=0;
     private int comanda_NumeroComanda=0;
@@ -18,6 +21,14 @@ public class ComandasEnVenta {
 
     public void setVenta_NumeroTicket(int venta_NumeroTicket) {
         this.venta_NumeroTicket = venta_NumeroTicket;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public int getVenta_NumeroTipoPago() {

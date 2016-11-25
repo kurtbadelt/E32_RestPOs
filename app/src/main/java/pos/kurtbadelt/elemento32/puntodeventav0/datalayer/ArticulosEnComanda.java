@@ -6,8 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ArticulosEnComanda  {
+public class ArticulosEnComanda  extends DataLayerObject{
 
+
+    private String nombreTabla = "ArticulosEnComanda";
     private int comanda_NumeroComanda=0;
     private int articulos_NumeroArticulo=0;
     private String estatusEnSistema="";
@@ -34,6 +36,13 @@ public class ArticulosEnComanda  {
 
     public void setArticulos_NumeroArticulo(int articulos_NumeroArticulo) {
         this.articulos_NumeroArticulo = articulos_NumeroArticulo;
+    }
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public String toString(){

@@ -6,7 +6,9 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ComandasEnMesa {
+public class ComandasEnMesa extends DataLayerObject{
+
+    private String nombreTabla="ComandasEnMesa";
     private int comanda_NumeroComanda=0;
     private int mesa_NumeroMesa=0;
     private int mesa_NumeroEmpleado=0;
@@ -21,6 +23,14 @@ public class ComandasEnMesa {
     public void setComanda_NumeroComanda(int comanda_NumeroComanda) {
         this.comanda_NumeroComanda = comanda_NumeroComanda;
     }
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
+    }
+
 
     public int getMesa_NumeroMesa() {
         return mesa_NumeroMesa;
@@ -30,11 +40,11 @@ public class ComandasEnMesa {
         this.mesa_NumeroMesa = mesa_NumeroMesa;
     }
 
-    public int getMesa_NumerEmpleado() {
+    public int getMesa_NumeroEmpleado() {
         return mesa_NumeroEmpleado;
     }
 
-    public void setMesa_NumerEmpleado(int mesa_NumerEmpleado) {
+    public void setMesa_NumeroEmpleado(int mesa_NumerEmpleado) {
         this.mesa_NumeroEmpleado = mesa_NumerEmpleado;
     }
 
@@ -63,7 +73,7 @@ public class ComandasEnMesa {
     }
     public String toString(){
         String output="";
-        output=this.getComanda_NumeroComanda()+";"+this.getMesa_NumeroMesa()+";"+this.getMesa_NumerEmpleado()+";"+this.getMesa_NumeroTipoEmpleado()+";"
+        output=this.getComanda_NumeroComanda()+";"+this.getMesa_NumeroMesa()+";"+this.getMesa_NumeroEmpleado()+";"+this.getMesa_NumeroTipoEmpleado()+";"
                 +this.getMesa_NumeroTipoMesa()+";"+this.getEstatusEnSistema();
         return output;
     }
@@ -72,7 +82,7 @@ public class ComandasEnMesa {
 
         output.put("Comanda_NumeroComanda",this.getComanda_NumeroComanda());
         output.put("Mesa_NumerDeMesa",this.getMesa_NumeroMesa());
-        output.put("Mesa_NumeroEmpleado",this.getMesa_NumerEmpleado());
+        output.put("Mesa_NumeroEmpleado",this.getMesa_NumeroEmpleado());
         output.put("Mesa_NumeroTipoEmpleado",this.getMesa_NumeroTipoEmpleado());
         output.put("Mesa_NumeroTipoMesa",this.getMesa_NumeroTipoMesa());
         output.put("EstatusEnSistema",this.getEstatusEnSistema());

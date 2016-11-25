@@ -6,12 +6,14 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class BodegaInventario {
-    int numeroBodega=0;
-    String nombreBodega="";
-    String descripcion="";
-    String ubicacion="";
-    String estatusEnSistema="";
+public class BodegaInventario extends DataLayerObject{
+
+    private String nombreTabla="BodegaInventario";
+    private int numeroBodega=0;
+    private String nombreBodega="";
+    private String descripcion="";
+    private String ubicacion="";
+    private String estatusEnSistema="";
 
     public int getNumeroBodega() {
         return numeroBodega;
@@ -48,6 +50,15 @@ public class BodegaInventario {
     public String getEstatusEnSistema() {
         return estatusEnSistema;
     }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
+    }
+
 
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;

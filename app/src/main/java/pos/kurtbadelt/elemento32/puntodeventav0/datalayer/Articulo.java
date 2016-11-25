@@ -6,17 +6,17 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Articulo {
+public class Articulo extends DataLayerObject {
 
 
-
+    private String nombreTabla = "Articulo";
     private int numeroArticulo = 0;
-    private String nombreArticulo="";
-    private String descripcion="";
-    private double precio=0;
-    private double costo=0;
+    private String nombreArticulo = "";
+    private String descripcion = "";
+    private double precio = 0;
+    private double costo = 0;
 
-    private String estatusEnSistema="";
+    private String estatusEnSistema = "";
 
     public String getEstatusEnSistema() {
         return estatusEnSistema;
@@ -66,21 +66,29 @@ public class Articulo {
         this.costo = costo;
     }
 
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
 
-    public String toString(){
-        String output="";
-        output=this.getNumeroArticulo()+";"+this.getNombreArticulo()+";"+this.getDescripcion()+";"+this.getPrecio()+";"+this.getCosto()+";"+this.getEstatusEnSistema();
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
+    }
+
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroArticulo() + ";" + this.getNombreArticulo() + ";" + this.getDescripcion() + ";" + this.getPrecio() + ";" + this.getCosto() + ";" + this.getEstatusEnSistema();
         return output;
     }
 
-    public ContentValues toDB(){
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroArticulo",this.getNumeroArticulo());
-        output.put("NombreArticulo",this.getNombreArticulo());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("Precio",this.getPrecio());
-        output.put("Costo",this.getCosto());
-        output.put("EstatusEnSistema",this.getCosto());
+        output.put("NumeroArticulo", this.getNumeroArticulo());
+        output.put("NombreArticulo", this.getNombreArticulo());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("Precio", this.getPrecio());
+        output.put("Costo", this.getCosto());
+        output.put("EstatusEnSistema", this.getCosto());
 
 
         return output;
