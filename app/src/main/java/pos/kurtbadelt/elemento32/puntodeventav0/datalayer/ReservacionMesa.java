@@ -6,8 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ReservacionMesa {
+public class ReservacionMesa extends DataLayerObject {
 
+
+    private String nombreTabla = "ReservacionMesa";
     private int mesa_numeroMesa=0;
     private int mesa_Empleado_NumeroEmpleado=0;
     private int mesa_Empleado_NumeroTipoEmpleado=0;
@@ -19,6 +21,10 @@ public class ReservacionMesa {
         return mesa_numeroMesa;
     }
 
+    public void setMesa_numeroMesa(int mesa_numeroMesa) {
+        this.mesa_numeroMesa = mesa_numeroMesa;
+    }
+
     public int getMesa_Empleado_NumeroEmpleado() {
         return mesa_Empleado_NumeroEmpleado;
     }
@@ -27,8 +33,12 @@ public class ReservacionMesa {
         this.mesa_Empleado_NumeroEmpleado = mesa_Empleado_NumeroEmpleado;
     }
 
-    public void setMesa_numeroMesa(int mesa_numeroMesa) {
-        this.mesa_numeroMesa = mesa_numeroMesa;
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public int getMesa_Empleado_NumeroTipoEmpleado() {

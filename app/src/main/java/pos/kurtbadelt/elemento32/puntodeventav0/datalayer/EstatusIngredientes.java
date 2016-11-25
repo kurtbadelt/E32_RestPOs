@@ -6,7 +6,13 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class EstatusIngredientes {
+/**
+ * Almacena el estatus del ingrediente
+ */
+public class EstatusIngredientes extends DataLayerObject {
+
+
+    private String nombreTabla = "EstatusIngredientes";
     private int ingrediente_NumeroIngrediente=0;
     private int estatusIngrediente_NumeroEstatusIngrediente=0;
     private String estatusEnSistema="";
@@ -17,6 +23,14 @@ public class EstatusIngredientes {
 
     public void setIngrediente_NumeroIngrediente(int ingrediente_NumeroIngrediente) {
         this.ingrediente_NumeroIngrediente = ingrediente_NumeroIngrediente;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public int getEstatusIngrediente_NumeroEstatusIngrediente() {

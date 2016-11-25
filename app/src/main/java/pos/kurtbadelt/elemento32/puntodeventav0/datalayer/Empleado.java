@@ -6,8 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Empleado {
+public class Empleado extends DataLayerObject {
 
+
+    private String nombreTabla = "Empleado";
     private int numeroEmpleado=0;
     private String nombre="";
     private String apellido="";
@@ -30,6 +32,14 @@ public class Empleado {
 
     public void setNumeroEmpleado(int numeroEmpleado) {
         this.numeroEmpleado = numeroEmpleado;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public String getNombre() {

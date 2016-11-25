@@ -6,7 +6,13 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class EstatusIngrediente {
+/***
+ * tipos posibles de estatus para los ingredientes, tabla de multivaluados
+ */
+public class EstatusIngrediente extends DataLayerObject {
+
+
+    private String nombreTabla = "EstatusIngrediente";
     private int numeroEstatusIngrediente=0;
     private String nombreEstatusIngrediente="";
     private String descripcion="";
@@ -26,6 +32,14 @@ public class EstatusIngrediente {
 
     public void setNombreEstatusIngrediente(String nombreEstatusIngrediente) {
         this.nombreEstatusIngrediente = nombreEstatusIngrediente;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public String getDescripcion() {

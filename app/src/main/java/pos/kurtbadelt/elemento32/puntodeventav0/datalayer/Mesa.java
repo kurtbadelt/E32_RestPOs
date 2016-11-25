@@ -6,7 +6,9 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Mesa {
+public class Mesa extends DataLayerObject {
+
+    private String nombreTabla = "Mesa";
     private int numeroDeMesa=0;
     private int numeroDeComensales=0;
     private int empleado_NumeroEmpleado=0;
@@ -29,6 +31,14 @@ public class Mesa {
 
     public void setNumeroDeComensales(int numeroDeComensales) {
         this.numeroDeComensales = numeroDeComensales;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public int getEmpleado_NumeroEmpleado() {

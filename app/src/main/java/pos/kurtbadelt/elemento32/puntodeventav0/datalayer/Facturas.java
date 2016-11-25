@@ -6,7 +6,10 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Facturas {
+public class Facturas extends DataLayerObject {
+
+
+    private String nombreTabla = "Facturas";
     private int numeroFactura=0;
     private String UUID="";
     private String RFC="";
@@ -22,6 +25,14 @@ public class Facturas {
 
     public void setNumeroFactura(int numeroFactura) {
         this.numeroFactura = numeroFactura;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
     }
 
     public String getUUID() {
