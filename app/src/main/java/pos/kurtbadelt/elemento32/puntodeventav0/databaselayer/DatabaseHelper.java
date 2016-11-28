@@ -701,8 +701,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public List<MenuRestaurante> getAllMenuRestaurante(){
+    MenuRestaurante menuRestaurante = null;
+        List<MenuRestaurante> listaMenuRestaurante = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Menu where EstatusEnSistema ='Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            menuRestaurante = new MenuRestaurante();
 
+            menuRestaurante.setNumeroMenu(cursor.getInt(0));
+            menuRestaurante.setNombreMenu(cursor.getString(1));
+            menuRestaurante.setDescripcion(cursor.getString(2));
+            menuRestaurante.setEstatusEnSistema(cursor.getString(3));
+
+            listaMenuRestaurante.add(menuRestaurante);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaMenuRestaurante;
     }
+
+    public List<Mesa> getAllMesa(){
+        Mesa mesa = null;
+        List<Mesa> listaMesa = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Mesa where EstatusEnSistema ='Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            mesa = new Mesa();
+
+            mesa.setNumeroDeMesa(cursor.getInt(0));
+            mesa.setNumeroDeComensales(cursor.getInt(1));
+            mesa.setEmpleado_NumeroEmpleado(cursor.getInt(2));
+            mesa.setEmpleado_NumeroTipoEmpleado(cursor.getInt(3));
+            mesa.setComensales_NumeroComensal(cursor.getInt(4));
+            mesa.setTipoMesa_NumeroTipoMesa(cursor.getInt(5));
+            mesa.setEstatusEnSistema(cursor.getString(6));
+
+            listaMesa.add(mesa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaMesa;
+    }
+
+    public List<MotivosCancelacion> getAllMotivosCancelacion(){
+        MotivosCancelacion motivosCancelacion = null;
+        List<MotivosCancelacion> listaMotivosCancelacion = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            motivosCancelacion = new MotivosCancelacion();
+
+            motivosCancelacion.setNumeroMotivo(cursor.getInt(0));
+            motivosCancelacion.setNombreMotivo(cursor.getString(1));
+            motivosCancelacion.setDescripcion(cursor.getString(2));
+            motivosCancelacion.setEstatusEnSistema(cursor.getString(3));
+
+            listaMotivosCancelacion.add(motivosCancelacion);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaMotivosCancelacion;
+    }
+
+
 
     public List<TipoMesa> getAllTiopoMesa() {
         TipoMesa tipomesa = null;
