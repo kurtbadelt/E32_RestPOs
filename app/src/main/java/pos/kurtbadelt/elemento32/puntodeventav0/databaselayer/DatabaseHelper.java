@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.Articulo;
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.ArticulosEnComanda;
@@ -91,6 +92,343 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Select All ----------------------------------------------------------------------------------
 
+
+
+
+    public List<Articulo> getAllArticulo(){
+        Articulo articulo = null;
+        List<Articulo> listaArticulos = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Articulos where EstatusEnSistema ='Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            articulo = new Articulo();
+
+            articulo.setNumeroArticulo(cursor.getInt(0));
+            articulo.setNombreArticulo(cursor.getString(1));
+            articulo.setDescripcion(cursor.getString(2));
+            articulo.setPrecio(cursor.getDouble(3));
+            articulo.setCosto(cursor.getDouble(4));
+            articulo.setEstatusEnSistema(cursor.getString(5));
+
+            listaArticulos.add(articulo);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaArticulos;
+    }
+
+    public List<ArticulosEnComanda> getAllArticulosEnComanda(){
+        ArticulosEnComanda articulosEnComanda = null;
+        List<ArticulosEnComanda> listaArticulosEnComanda = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnComanda where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            articulosEnComanda = new ArticulosEnComanda();
+
+            articulosEnComanda.setComanda_NumeroComanda(cursor.getInt(0));
+            articulosEnComanda.setArticulos_NumeroArticulo(cursor.getInt(1));
+            articulosEnComanda.setEstatusEnSistema(cursor.getString(2));
+
+            listaArticulosEnComanda.add(articulosEnComanda);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaArticulosEnComanda;
+    }
+
+    public List<ArticulosEnMenu> getAllArticulosEnMenu(){
+        ArticulosEnMenu articulosEnMenu = null;
+        List<ArticulosEnMenu> listaArticulosEnMenu = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnMenu where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            articulosEnMenu = new ArticulosEnMenu();
+
+            articulosEnMenu.setMenu_NumeroMenu(cursor.getInt(0));
+            articulosEnMenu.setArticulos_NumeroArticulo(cursor.getInt(1));
+            articulosEnMenu.setEstatusEnSistema(cursor.getString(2));
+
+            listaArticulosEnMenu.add(articulosEnMenu);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaArticulosEnMenu;
+    }
+    public List<ArticulosEnPromocion> getAllArticulosEnPromocion() {
+        ArticulosEnPromocion articulosEnPromocion = null;
+        List<ArticulosEnPromocion> listaArticulosEnPromocion = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnPromocion where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+
+            articulosEnPromocion = new ArticulosEnPromocion();
+
+            articulosEnPromocion.setArticulos_NumeroArticulo(cursor.getInt(0));
+            articulosEnPromocion.setPromociones_NumeroPromocion(cursor.getInt(1));
+            articulosEnPromocion.setEstatusEnSistema(cursor.getString(2));
+
+            listaArticulosEnPromocion.add(articulosEnPromocion);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaArticulosEnPromocion;
+
+    }
+
+    public List<Asistencia> getAllAsistencia(){
+        Asistencia asistencia = null;
+        List <Asistencia> listaAsistencia = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Asistencia where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()){
+
+            asistencia = new Asistencia();
+
+            asistencia.setNumeroAsistencia(cursor.getInt(0));
+            asistencia.setFechaHoraEntrada(cursor.getString(1));
+            asistencia.setFechaHoraSalida(cursor.getString(2));
+            asistencia.setComentarios(cursor.getString(3));
+            asistencia.setEstatusEnSistema(cursor.getString(4));
+            asistencia.setEmpleado_NumeroEmpleado(cursor.getInt(5));
+            asistencia.setEmpleado_NumeroTipoEmpleado(cursor.getInt(6));
+
+            listaAsistencia.add(asistencia);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaAsistencia;
+    }
+
+    public List<BodegaInventario> getAllBodegaInventario(){
+        BodegaInventario bodegaInventario = null;
+        List <BodegaInventario> listaBodegaInventario = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from BodegaInventario where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+
+            bodegaInventario = new BodegaInventario();
+
+            bodegaInventario.setNumeroBodega(cursor.getInt(0));
+            bodegaInventario.setNombreBodega(cursor.getString(1));
+            bodegaInventario.setDescripcion(cursor.getString(2));
+            bodegaInventario.setUbicacion(cursor.getString(3));
+            bodegaInventario.setEstatusEnSistema(cursor.getString(4));
+
+            listaBodegaInventario.add(bodegaInventario);
+            cursor.moveToNext();
+
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaBodegaInventario;
+
+    }
+
+    public List<Cancelaciones> getAllCancelaciones(){
+        Cancelaciones cancelaciones = null;
+        List<Cancelaciones> listaCancelaciones = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Cancelaciones where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            cancelaciones = new Cancelaciones();
+
+            cancelaciones.setNumeroCancelacion(cursor.getInt(0));
+            cancelaciones.setDescripcion(cursor.getString(1));
+            cancelaciones.setAprobacion(cursor.getString(2));
+            cancelaciones.setEstatusEnSistema(cursor.getString(3));
+            cancelaciones.setComanda_NumeroComanda(cursor.getInt(4));
+            cancelaciones.setMotivosCancelacion_NumeroMotivo(cursor.getInt(5));
+
+            listaCancelaciones.add(cancelaciones);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaCancelaciones;
+
+    }
+
+    public List<CategoriaMenu> getAllCategoriaMenu(){
+        CategoriaMenu categoriaMenu =null;
+        List<CategoriaMenu> listaCategoriaMenu = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from CategoriaMenu where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+
+            categoriaMenu = new CategoriaMenu();
+
+            categoriaMenu.setNumeroCategoria(cursor.getInt(0));
+            categoriaMenu.setNombreCategoria(cursor.getString(1));
+            categoriaMenu.setDescripcion(cursor.getString(2));
+            categoriaMenu.setMenu_NumeroMenu(cursor.getInt(3));
+            categoriaMenu.setEstatusEnSistema(cursor.getString(4));
+
+            listaCategoriaMenu.add(categoriaMenu);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaCategoriaMenu;
+    }
+
+    public List<Cocina> getAllCocina(){
+        Cocina cocina = null;
+        List<Cocina> listaCocina = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Cocina where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            cocina = new Cocina();
+
+            cocina.setNumeroCocina(cursor.getInt(0));
+            cocina.setNumeroCocineros(cursor.getInt(1));
+            cocina.setTipoCocina_NumeroTipoCocina(cursor.getInt(2));
+            cocina.setEstatusEnSistema(cursor.getString(3));
+
+            listaCocina.add(cocina);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaCocina;
+    }
+
+    public List<Comanda> getAllComanda(){
+        Comanda comanda = null;
+        List<Comanda> listaComanda = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Comanda where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            comanda = new Comanda();
+
+            comanda.setNumeroComanda(cursor.getInt(0));
+            comanda.setNumeroComensales(cursor.getInt(1));
+            comanda.setEmpleado_NumeroEmpleado(cursor.getInt(2));
+            comanda.setEstatusEnSistema(cursor.getString(3));
+            comanda.setEmpleado_NumeroTipoEmpleado(cursor.getInt(4));
+
+            listaComanda.add(comanda);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaComanda;
+    }
+
+    public List<ComandasEnCocina> getAllComandasEnCocina(){
+        ComandasEnCocina comandasEnCocina = null;
+        List<ComandasEnCocina> listaComandasEnCocina = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnCocina where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            comandasEnCocina = new ComandasEnCocina();
+
+            comandasEnCocina.setCocina_NumeroCocina(cursor.getInt(0));
+            comandasEnCocina.setComanda_NumeroComanda(cursor.getInt(1));
+            comandasEnCocina.setEstatusEnSistema(cursor.getString(2));
+
+            listaComandasEnCocina.add(comandasEnCocina);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaComandasEnCocina;
+
+    }
+
+    public List<ComandasEnMesa> getAllComandasEnMesa(){
+        ComandasEnMesa comandasEnMesa = null;
+        List<ComandasEnMesa> listaComandasEnMesa = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnMesa where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            comandasEnMesa = new ComandasEnMesa();
+
+            comandasEnMesa.setComanda_NumeroComanda(cursor.getInt(0));
+            comandasEnMesa.setMesa_NumeroMesa(cursor.getInt(1));
+            comandasEnMesa.setMesa_NumeroEmpleado(cursor.getInt(2));
+            comandasEnMesa.setMesa_NumeroTipoEmpleado(cursor.getInt(3));
+            comandasEnMesa.setMesa_NumeroTipoMesa(cursor.getInt(4));
+            comandasEnMesa.setEstatusEnSistema(cursor.getString(5));
+
+            listaComandasEnMesa.add(comandasEnMesa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaComandasEnMesa;
+    }
+
+
+    public List<ComandasEnVenta> getAllComandasEnVenta(){
+        ComandasEnVenta comandasEnVenta = null;
+        List<ComandasEnVenta> listaComandasEnVenta = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnVenta where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            comandasEnVenta = new ComandasEnVenta();
+
+            comandasEnVenta.setVenta_NumeroTicket(cursor.getInt(0));
+            comandasEnVenta.setVenta_NumeroTipoPago(cursor.getInt(1));
+            comandasEnVenta.setComanda_NumeroComanda(cursor.getInt(2));
+            comandasEnVenta.setComanda_NumeroComanda(cursor.getShort(3));
+
+            listaComandasEnVenta.add(comandasEnVenta);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaComandasEnVenta;
+    }
+
+    public List<Comensales> getAllComensales(){
+        Comensales comensales = null;
+        List<Comensales> listaComensales = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Comensales where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            comensales = new Comensales();
+
+            comensales.setNumeroComensal(cursor.getInt(0));
+            comensales.setNombreComensal(cursor.getString(1));
+            comensales.setApellidoComensal(cursor.getString(2));
+            comensales.setCorreoElectronico(cursor.getString(3));
+            comensales.setEstatusEnSistema(cursor.getString(4));
+
+            listaComensales.add(comensales);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaComensales;
+    }
+
     public List<Empleado> getAllEmpleados() {
         Empleado empleado = null;
         List<Empleado> listaEmpleados = new ArrayList<>();
@@ -125,6 +463,244 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         closeDatabase();
         return listaEmpleados;
 
+
+    }
+
+    public List<EncuestaSatisfaccion> getAllEncuestaSatisfaccion(){
+        EncuestaSatisfaccion encuestaSatisfaccion = null;
+        List<EncuestaSatisfaccion> listaEncuestaSatisfaccion = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EncuestaSatisfaccion where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            encuestaSatisfaccion = new EncuestaSatisfaccion();
+
+            encuestaSatisfaccion.setNumeroEncuesta(cursor.getInt(0));
+            encuestaSatisfaccion.setDescripcionPregunta1(cursor.getString(1));
+            encuestaSatisfaccion.setEvaluacionPregunta1(cursor.getInt(2));
+            encuestaSatisfaccion.setDescripcionPregunta2(cursor.getString(3));
+            encuestaSatisfaccion.setEvaluacionPregunta2(cursor.getInt(4));
+            encuestaSatisfaccion.setDescripcionPregunta3(cursor.getString(5));
+            encuestaSatisfaccion.setEvaluacionPregunta3(cursor.getInt(6));
+            encuestaSatisfaccion.setDescripcionPregunta4(cursor.getString(7));
+            encuestaSatisfaccion.setEvaluacionPregunta4(cursor.getInt(8));
+            encuestaSatisfaccion.setDescripcionPregunta5(cursor.getString(9));
+            encuestaSatisfaccion.setEvaluacionPregunta5(cursor.getInt(10));
+            encuestaSatisfaccion.setComentariosCliente(cursor.getString(11));
+            encuestaSatisfaccion.setEstatusEnSistema(cursor.getString(12));
+            encuestaSatisfaccion.setVenta_NumeroTicket(cursor.getInt(13));
+            encuestaSatisfaccion.setVenta_NumeroTipoPago(cursor.getInt(14));
+
+            listaEncuestaSatisfaccion.add(encuestaSatisfaccion);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEncuestaSatisfaccion;
+    }
+
+
+    public List<EstatusComanda> getAllEstatusComanda(){
+        EstatusComanda estatusComanda = null;
+        List<EstatusComanda> listaEstatusComanda = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusComanda where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            estatusComanda = new EstatusComanda();
+
+            estatusComanda.setNumeroEstatus(cursor.getInt(0));
+            estatusComanda.setNombreEstatus(cursor.getString(1));
+            estatusComanda.setDescripcion(cursor.getString(2));
+            estatusComanda.setEstatusEnSistema(cursor.getString(3));
+
+            listaEstatusComanda.add(estatusComanda);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEstatusComanda;
+    }
+
+    public List<EstatusDeComandas> getAllEstatusDeComandas(){
+        EstatusDeComandas estatusDeComandas = null;
+        List<EstatusDeComandas> listaEstatusDeComandas = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusDeComandas where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            estatusDeComandas = new EstatusDeComandas();
+
+            estatusDeComandas.setEstatusComanda_NumeroEstatus(cursor.getInt(0));
+            estatusDeComandas.setComanda_NumeroComanda(cursor.getInt(1));
+            estatusDeComandas.setFechaHoraIngreso(cursor.getString(2));
+            estatusDeComandas.setEstatusEnSistema(cursor.getString(3));
+
+            listaEstatusDeComandas.add(estatusDeComandas);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEstatusDeComandas;
+    }
+
+    public List<EstatusIngrediente> getAllEstatusIngrediente(){
+        EstatusIngrediente estatusIngrediente =null;
+        List<EstatusIngrediente> listaEstatusIngrediente = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngrediente where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            estatusIngrediente = new EstatusIngrediente();
+
+            estatusIngrediente.setNumeroEstatusIngrediente(cursor.getInt(0));
+            estatusIngrediente.setNombreEstatusIngrediente(cursor.getString(1));
+            estatusIngrediente.setDescripcion(cursor.getString(2));
+            estatusIngrediente.setEstatusEnSistema(cursor.getString(3));
+
+            listaEstatusIngrediente.add(estatusIngrediente);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEstatusIngrediente;
+    }
+
+    public List<EstatusIngredientes> getAllEstatusIngredientes(){
+        EstatusIngredientes estatusIngredientes = null;
+        List<EstatusIngredientes> listaEstatusIngredientes = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngredientes where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            estatusIngredientes = new EstatusIngredientes();
+
+            estatusIngredientes.setIngrediente_NumeroIngrediente(cursor.getInt(0));
+            estatusIngredientes.setEstatusIngrediente_NumeroEstatusIngrediente(cursor.getInt(1));
+            estatusIngredientes.setEstatusEnSistema(cursor.getString(2));
+
+            listaEstatusIngredientes.add(estatusIngredientes);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEstatusIngredientes;
+    }
+
+    public List<EvaluacionEmpleado> getAllEvaluacionEmpleado(){
+        EvaluacionEmpleado evaluacionEmpleado = null;
+        List<EvaluacionEmpleado> listaEvaluacionEmpleado = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from EvaluacionEmpleado where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            evaluacionEmpleado = new EvaluacionEmpleado();
+
+            evaluacionEmpleado.setNumeroEvaluacion(cursor.getInt(0));
+            evaluacionEmpleado.setDescripcionPregunta1(cursor.getString(1));
+            evaluacionEmpleado.setEvaluacionPregunta1(cursor.getInt(2));
+            evaluacionEmpleado.setDescripcionPregunta2(cursor.getString(3));
+            evaluacionEmpleado.setEvaluacionPregunta2(cursor.getInt(4));
+            evaluacionEmpleado.setDescripcionPregunta3(cursor.getString(5));
+            evaluacionEmpleado.setEvaluacionPregunta3(cursor.getInt(6));
+            evaluacionEmpleado.setDescripcionPregunta4(cursor.getString(7));
+            evaluacionEmpleado.setEvaluacionPregunta4(cursor.getInt(8));
+            evaluacionEmpleado.setDescripcionPregunta5(cursor.getString(9));
+            evaluacionEmpleado.setEvaluacionPregunta5(cursor.getInt(10));
+            evaluacionEmpleado.setComentariosSupervisor(cursor.getString(11));
+            evaluacionEmpleado.setEmpleado_NumeroEmpleado(cursor.getInt(12));
+            evaluacionEmpleado.setEmpleado_NumeroTipoEmpleado(cursor.getInt(13));
+            evaluacionEmpleado.setEstatusEnSistema(cursor.getString(14));
+
+            listaEvaluacionEmpleado.add(evaluacionEmpleado);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaEvaluacionEmpleado;
+    }
+
+    public List<Facturas> getAllFacturas(){
+        Facturas facturas = null;
+        List<Facturas> listaFacturas = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Facturas where EstatusEnSistema = 'Activo'", null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            facturas = new Facturas();
+
+            facturas.setNumeroFactura(cursor.getInt(0));
+            facturas.setUUID(cursor.getString(1));
+            facturas.setRFC(cursor.getString(2));
+            facturas.setSubTotal(cursor.getDouble(3));
+            facturas.setIva(cursor.getDouble(4));
+            facturas.setTotal(cursor.getDouble(5));
+            facturas.setDescripcion(cursor.getString(6));
+            facturas.setEstatusEnSistema(cursor.getString(7));
+
+            listaFacturas.add(facturas);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaFacturas;
+    }
+
+    public List<Ingrediente> getAllIngrediente(){
+        Ingrediente ingrediente =null;
+        List<Ingrediente> listaIngrediente = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Ingrediente where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            ingrediente = new Ingrediente();
+
+            ingrediente.setNumeroIngrediente(cursor.getInt(0));
+            ingrediente.setNombreIngrediente(cursor.getString(1));
+            ingrediente.setDescripcion(cursor.getString(2));
+            ingrediente.setExistencia(cursor.getDouble(3));
+            ingrediente.setPrecioCompra(cursor.getDouble(4));
+            ingrediente.setPrecioVenta(cursor.getDouble(5));
+            ingrediente.setTiempoEntregaDias(cursor.getInt(6));
+            ingrediente.setFormatoMedicion(cursor.getString(7));
+            ingrediente.setInventarioMinimo(cursor.getDouble(8));
+            ingrediente.setInventarioMaximo(cursor.getDouble(9));
+            ingrediente.setEstatusEnSistema(cursor.getString(10));
+
+            listaIngrediente.add(ingrediente);
+
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaIngrediente;
+    }
+
+
+    public List<IngredientesEnBodega> selectAllIngredientesEnBodega(){
+        IngredientesEnBodega ingredientesEnBodega = null;
+        List <IngredientesEnBodega> listaIngredientesEnBodega = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from IngredientesEnBodega where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            ingredientesEnBodega = new IngredientesEnBodega();
+
+            ingredientesEnBodega.setIngrediente_NumeroIngrediente(cursor.getInt(0));
+            ingredientesEnBodega.setBodegaInventario_NumeroBodega(cursor.getInt(1));
+            ingredientesEnBodega.setEstatusEnSistema(cursor.getString(2));
+
+            listaIngredientesEnBodega.add(ingredientesEnBodega);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaIngredientesEnBodega;
+    }
+
+
+    public List<MenuRestaurante> getAllMenuRestaurante(){
 
     }
 
