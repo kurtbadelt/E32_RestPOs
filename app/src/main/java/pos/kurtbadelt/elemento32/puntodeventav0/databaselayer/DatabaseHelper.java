@@ -93,13 +93,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Select All ----------------------------------------------------------------------------------
 
 
-
-
+    /**
+     *  Pendiente de Arreglar Query
+     * @return
+     */
     public List<Articulo> getAllArticulo(){
         Articulo articulo = null;
         List<Articulo> listaArticulos = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Articulos where EstatusEnSistema ='Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Articulos",null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             articulo = new Articulo();
@@ -916,6 +918,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaTipoCocina;
     }
 
+    /**
+     *
+     * @return
+     */
+    public List<TipoPago> getAllTipoPago(){
+        TipoPago tipoPago = null;
+        List<TipoPago> listaTipoPago = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from TipoDePago where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            tipoPago = new TipoPago();
+
+            tipoPago.setNumeroTipoDePago(cursor.getInt(0));
+            tipoPago.setNombreTipoDePago(cursor.getString(1));
+            tipoPago.setDescripcionTIpoDePago(cursor.getString(2));
+            tipoPago.setEstatusEnSistema(cursor.getString(3));
+
+            listaTipoPago.add(tipoPago);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaTipoPago;
+
+    }
+
+    public List<TipoEmpleado> getAllTipoEmpleado(){
+        TipoEmpleado tipoEmpleado = null;
+        List<TipoEmpleado> listaTipoEmpleado = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from TipoEmpleado where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            tipoEmpleado = new TipoEmpleado();
+
+            tipoEmpleado.setNumeroTipoEmpleado(cursor.getInt(0));
+            tipoEmpleado.setNombreTipoEmpleado(cursor.getString(1));
+            tipoEmpleado.setDescripcion(cursor.getString(2));
+            tipoEmpleado.setEstatusEnSistema(cursor.getString(3));
+
+            listaTipoEmpleado.add(tipoEmpleado);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaTipoEmpleado;
+    }
+
+
     public List<TipoMesa> getAllTiopoMesa() {
         TipoMesa tipomesa = null;
         List<TipoMesa> listaTipoMesas = new ArrayList<>();
@@ -938,6 +990,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaTipoMesas;
     }
 
+    public List<Venta> getAllVentas(){
+        Venta venta = null;
+        List<Venta> listaVentas = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Venta where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            venta = new Venta();
+
+            venta.setNumeroTicket(cursor.getInt(0));
+            venta.setNumeroFactura(cursor.getInt(1));
+            venta.setMontoTotal(cursor.getDouble(2));
+            venta.setEstatusEnSistema(cursor.getString(3));
+            venta.setTipoDePago_NumeroTipoPago(cursor.getInt(4));
+
+            listaVentas.add(venta);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaVentas;
+    }
 
 
 
