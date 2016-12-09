@@ -751,7 +751,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MotivosCancelacion motivosCancelacion = null;
         List<MotivosCancelacion> listaMotivosCancelacion = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("",null);
+        Cursor cursor = mDatabase.rawQuery("select * from MotivosCancelacion where EstatusEnSistema = 'Activo'",null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             motivosCancelacion = new MotivosCancelacion();
@@ -769,28 +769,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaMotivosCancelacion;
     }
 
-
-
-    public List<TipoMesa> getAllTiopoMesa() {
-        TipoMesa tipomesa = null;
-        List<TipoMesa> listaTipoMesas = new ArrayList<>();
+    public List<Promociones> getAllPromociones(){
+        Promociones promociones = null;
+        List<Promociones> listaPromociones = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from TipoMesa where EstatusEnSistema = 'Activo'", null);
+        Cursor cursor = mDatabase.rawQuery("select * from Promociones where EstatusEnSistema = 'Activo'",null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            tipomesa = new TipoMesa();
+        while(!cursor.isAfterLast()){
+            promociones = new Promociones();
 
-            tipomesa.setNumeroTipoMesa(cursor.getInt(0));
-            tipomesa.setNombreTipoMesa(cursor.getString(1));
-            tipomesa.setDescripcion(cursor.getString(2));
-            tipomesa.setEstatusEnSistema(cursor.getString(3));
+            promociones.setNumeroPromocion(cursor.getInt(0));
+            promociones.setNombrePromocion(cursor.getString(1));
+            promociones.setDescripcion(cursor.getString(2));
+            promociones.setInicioPromocion(cursor.getString(3));
+            promociones.setFinPromocion(cursor.getString(4));
+            promociones.setDescuento(cursor.getDouble(5));
+            promociones.setEstatusEnSistema(cursor.getString(6));
 
-            listaTipoMesas.add(tipomesa);
+            listaPromociones.add(promociones);
             cursor.moveToNext();
+
         }
         cursor.close();
         closeDatabase();
-        return listaTipoMesas;
+        return listaPromociones;
     }
 
     public List<RecetasIngredientesEnArticulos> getAllRecetas() {
@@ -817,6 +819,127 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         closeDatabase();
         return listaRecetas;
     }
+
+    public List<ReservacionMesa> getAllReservacionMesa(){
+        ReservacionMesa reservacionMesa = null;
+        List<ReservacionMesa> listaReservacionesMesa = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from ReservacionMesa where EstatusEnSistema = 'Activo'",null);
+        while (!cursor.isAfterLast()){
+            reservacionMesa = new ReservacionMesa();
+
+            reservacionMesa.setMesa_numeroMesa(cursor.getInt(0));
+            reservacionMesa.setMesa_Empleado_NumeroEmpleado(cursor.getInt(1));
+            reservacionMesa.setMesa_Empleado_NumeroTipoEmpleado(cursor.getInt(2));
+            reservacionMesa.setMesa_NumeroTipoMesa(cursor.getInt(3));
+            reservacionMesa.setReservaciones_NumeroReservacion(cursor.getInt(4));
+            reservacionMesa.setEstatusEnSistema(cursor.getString(5));
+
+            listaReservacionesMesa.add(reservacionMesa);
+            cursor.moveToNext();
+        }
+
+        cursor.close();
+        closeDatabase();
+        return listaReservacionesMesa;
+    }
+
+
+    public List<Reservaciones> getAllReservaciones(){
+        Reservaciones reservaciones = null;
+        List<Reservaciones> listaReservaciones = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from Reservaciones where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            reservaciones = new Reservaciones();
+
+            reservaciones.setNumeroReservacion(cursor.getInt(0));
+            reservaciones.setFechaReservacion(cursor.getString(1));
+            reservaciones.setVigenciaReservacion(cursor.getString(2));
+            reservaciones.setNombreComensal(cursor.getString(3));
+            reservaciones.setNumeroDeComensales(cursor.getInt(4));
+            reservaciones.setComensales_NumeroComensal(cursor.getInt(5));
+            reservaciones.setEstatusEnSistema(cursor.getString(6));
+
+            listaReservaciones.add(reservaciones);
+            cursor.moveToNext();
+
+        }
+        cursor.close();
+        closeDatabase();
+        return listaReservaciones;
+    }
+
+    public List<TicketsFacturas> getAllTicketFacturas(){
+        TicketsFacturas ticketsFacturas =null;
+        List<TicketsFacturas> listaTicketFacturas = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from TicketsFacturas where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            ticketsFacturas = new TicketsFacturas();
+
+            ticketsFacturas.setVenta_NumeroTicket(cursor.getInt(0));
+            ticketsFacturas.setVenta_NumeroTipoPago(cursor.getInt(1));
+            ticketsFacturas.setFacturas_NumeroFactura(cursor.getInt(2));
+            ticketsFacturas.setEstatusEnSistema(cursor.getString(3));
+
+            listaTicketFacturas.add(ticketsFacturas);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaTicketFacturas;
+
+    }
+
+    public List<TipoCocina> getAllTipoCocina(){
+        TipoCocina tipoCocina = null;
+        List<TipoCocina> listaTipoCocina = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from TipoCocina where EstatusEnSistema = 'Activo'",null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            tipoCocina = new TipoCocina();
+
+            tipoCocina.setNumeroTipoCocina(cursor.getInt(0));
+            tipoCocina.setNombreTipoCocina(cursor.getString(1));
+            tipoCocina.setDescripcionTipoCocina(cursor.getString(2));
+            tipoCocina.setEstatusEnSistema(cursor.getString(3));
+
+            listaTipoCocina.add(tipoCocina);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaTipoCocina;
+    }
+
+    public List<TipoMesa> getAllTiopoMesa() {
+        TipoMesa tipomesa = null;
+        List<TipoMesa> listaTipoMesas = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("select * from TipoMesa where EstatusEnSistema = 'Activo'", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            tipomesa = new TipoMesa();
+
+            tipomesa.setNumeroTipoMesa(cursor.getInt(0));
+            tipomesa.setNombreTipoMesa(cursor.getString(1));
+            tipomesa.setDescripcion(cursor.getString(2));
+            tipomesa.setEstatusEnSistema(cursor.getString(3));
+
+            listaTipoMesas.add(tipomesa);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        closeDatabase();
+        return listaTipoMesas;
+    }
+
+
+
 
 
 // End of Select All ------------------------------------------------------------------------------
