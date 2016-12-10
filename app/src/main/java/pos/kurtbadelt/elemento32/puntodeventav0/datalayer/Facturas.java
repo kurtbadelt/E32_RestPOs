@@ -10,14 +10,14 @@ public class Facturas extends DataLayerObject {
 
 
     private String nombreTabla = "Facturas";
-    private int numeroFactura=0;
-    private String UUID="";
-    private String RFC="";
-    private double subTotal=0;
-    private double iva=0;
-    private double total=0;
-    private String descripcion="";
-    private String estatusEnSistema="";
+    private int numeroFactura = 0;
+    private String UUID = "";
+    private String RFC = "";
+    private double subTotal = 0;
+    private double iva = 0;
+    private double total = 0;
+    private String descripcion = "";
+    private String estatusEnSistema = "";
 
     public int getNumeroFactura() {
         return numeroFactura;
@@ -90,22 +90,24 @@ public class Facturas extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroFactura()+";"+this.getUUID()+";"+this.getRFC()+";"+this.getSubTotal()+";"+this.getIva()+";"+this.getTotal()+";"+
-                this.getDescripcion()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroFactura() + ";" + this.getUUID() + ";" + this.getRFC() + ";" + this.getSubTotal() + ";" + this.getIva() + ";" + this.getTotal() + ";" +
+                this.getDescripcion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroFactura",this.getNumeroFactura());
-        output.put("UUID",this.getUUID());
-        output.put("RFC",this.getRFC());
-        output.put("SubTotal",this.getSubTotal());
-        output.put("IVA",this.getIva());
-        output.put("Total",this.getTotal());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroFactura", this.getNumeroFactura());
+        output.put("UUID", this.getUUID());
+        output.put("RFC", this.getRFC());
+        output.put("SubTotal", this.getSubTotal());
+        output.put("IVA", this.getIva());
+        output.put("Total", this.getTotal());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

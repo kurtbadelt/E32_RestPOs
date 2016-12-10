@@ -10,10 +10,10 @@ public class EstatusDeComandas extends DataLayerObject {
 
 
     private String nombreTabla = "EstatusDeComandas";
-    private int estatusComanda_NumeroEstatus=0;
-    private int comanda_NumeroComanda=0;
-    private String fechaHoraIngreso="";
-    private String estatusEnSistema="";
+    private int estatusComanda_NumeroEstatus = 0;
+    private int comanda_NumeroComanda = 0;
+    private String fechaHoraIngreso = "";
+    private String estatusEnSistema = "";
 
     public int getEstatusComanda_NumeroEstatus() {
         return estatusComanda_NumeroEstatus;
@@ -54,17 +54,19 @@ public class EstatusDeComandas extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getEstatusComanda_NumeroEstatus()+";"+this.getComanda_NumeroComanda()+";"+this.getFechaHoraIngreso()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getEstatusComanda_NumeroEstatus() + ";" + this.getComanda_NumeroComanda() + ";" + this.getFechaHoraIngreso() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("EstatusComanda_NumeroEstatus",this.getEstatusComanda_NumeroEstatus());
-        output.put("Comanda_NumeroComanda",this.getComanda_NumeroComanda());
-        output.put("FechaHoraIngreso",this.getFechaHoraIngreso());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("EstatusComanda_NumeroEstatus", this.getEstatusComanda_NumeroEstatus());
+        output.put("Comanda_NumeroComanda", this.getComanda_NumeroComanda());
+        output.put("FechaHoraIngreso", this.getFechaHoraIngreso());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

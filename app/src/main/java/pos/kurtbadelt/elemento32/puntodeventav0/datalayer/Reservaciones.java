@@ -10,13 +10,13 @@ public class Reservaciones extends DataLayerObject {
 
 
     private String nombreTabla = "Reservaciones";
-    private int numeroReservacion=0;
-    private String fechaReservacion="";
-    private String vigenciaReservacion="";
-    private String nombreComensal="";
-    private int numeroDeComensales=0;
-    private int comensales_NumeroComensal=0;
-    private String estatusEnSistema="";
+    private int numeroReservacion = 0;
+    private String fechaReservacion = "";
+    private String vigenciaReservacion = "";
+    private String nombreComensal = "";
+    private int numeroDeComensales = 0;
+    private int comensales_NumeroComensal = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroReservacion() {
         return numeroReservacion;
@@ -81,22 +81,24 @@ public class Reservaciones extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroReservacion()+";"+this.getFechaReservacion()+";"+this.getVigenciaReservacion()+";"+this.getNombreComensal()+";"+
-                this.getNumeroDeComensales()+";"+this.getComensales_NumeroComensal()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroReservacion() + ";" + this.getFechaReservacion() + ";" + this.getVigenciaReservacion() + ";" + this.getNombreComensal() + ";" +
+                this.getNumeroDeComensales() + ";" + this.getComensales_NumeroComensal() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroReservacion",this.getNumeroReservacion());
-        output.put("FechaReservacion",this.getFechaReservacion());
-        output.put("VigenciaReservacion",this.getVigenciaReservacion());
-        output.put("NombreComensal",this.getNombreComensal());
-        output.put("NumeroDeComensales",this.getNumeroDeComensales());
-        output.put("Comensales_NumeroComensal",this.getComensales_NumeroComensal());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroReservacion", this.getNumeroReservacion());
+        output.put("FechaReservacion", this.getFechaReservacion());
+        output.put("VigenciaReservacion", this.getVigenciaReservacion());
+        output.put("NombreComensal", this.getNombreComensal());
+        output.put("NumeroDeComensales", this.getNumeroDeComensales());
+        output.put("Comensales_NumeroComensal", this.getComensales_NumeroComensal());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

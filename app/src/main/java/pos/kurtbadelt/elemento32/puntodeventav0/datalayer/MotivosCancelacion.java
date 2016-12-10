@@ -10,10 +10,10 @@ public class MotivosCancelacion extends DataLayerObject {
 
 
     private String nombreTabla = "MotivosCancelacion";
-    private int numeroMotivo=0;
-    private String nombreMotivo="";
-    private String descripcion="";
-    private String estatusEnSistema="";
+    private int numeroMotivo = 0;
+    private String nombreMotivo = "";
+    private String descripcion = "";
+    private String estatusEnSistema = "";
 
     public int getNumeroMotivo() {
         return numeroMotivo;
@@ -54,17 +54,19 @@ public class MotivosCancelacion extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output = this.getNumeroMotivo()+";"+this.getNombreMotivo()+";"+this.getDescripcion()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroMotivo() + ";" + this.getNombreMotivo() + ";" + this.getDescripcion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroMotivo",this.getNumeroMotivo());
-        output.put("NombreMotivo",this.getNombreMotivo());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroMotivo", this.getNumeroMotivo());
+        output.put("NombreMotivo", this.getNombreMotivo());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

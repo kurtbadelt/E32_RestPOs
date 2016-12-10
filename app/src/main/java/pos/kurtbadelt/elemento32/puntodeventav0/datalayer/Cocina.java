@@ -9,11 +9,11 @@ import android.content.ContentValues;
 public class Cocina extends DataLayerObject {
 
 
-    private String nombreTabla="Cocina";
-    private int numeroCocina=0;
-    private int numeroCocineros=0;
-    private int tipoCocina_NumeroTipoCocina=0;
-    private String estatusEnSistema="";
+    private String nombreTabla = "Cocina";
+    private int numeroCocina = 0;
+    private int numeroCocineros = 0;
+    private int tipoCocina_NumeroTipoCocina = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroCocina() {
         return numeroCocina;
@@ -54,18 +54,20 @@ public class Cocina extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroCocina()+";"+this.getNumeroCocineros()+";"+this.getTipoCocina_NumeroTipoCocina()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroCocina() + ";" + this.getNumeroCocineros() + ";" + this.getTipoCocina_NumeroTipoCocina() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroCocina",this.getNumeroCocina());
-        output.put("NumerDeCocineros",this.getNumeroCocineros());
-        output.put("TipoCocina",this.getTipoCocina_NumeroTipoCocina());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroCocina", this.getNumeroCocina());
+        output.put("NumerDeCocineros", this.getNumeroCocineros());
+        output.put("TipoCocina", this.getTipoCocina_NumeroTipoCocina());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

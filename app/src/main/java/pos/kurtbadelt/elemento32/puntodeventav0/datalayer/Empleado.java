@@ -10,21 +10,21 @@ public class Empleado extends DataLayerObject {
 
 
     private String nombreTabla = "Empleado";
-    private int numeroEmpleado=0;
-    private String nombre="";
-    private String apellido="";
-    private String fechaNacimiento="";
-    private String telefonoCasa="";
-    private String telefonoMovil="";
-    private String calle="";
-    private String numeroExterior_Interior="";
-    private String municipio_Delegacion="";
-    private String estado="";
-    private String codigoPostal="";
-    private int tipoEmpleado_NumeroTipoEmpleado=0;
-    private String estatusEnSistema="";
-    private String usuarioSistema="";
-    private String password="";
+    private int numeroEmpleado = 0;
+    private String nombre = "";
+    private String apellido = "";
+    private String fechaNacimiento = "";
+    private String telefonoCasa = "";
+    private String telefonoMovil = "";
+    private String calle = "";
+    private String numeroExterior_Interior = "";
+    private String municipio_Delegacion = "";
+    private String estado = "";
+    private String codigoPostal = "";
+    private int tipoEmpleado_NumeroTipoEmpleado = 0;
+    private String estatusEnSistema = "";
+    private String usuarioSistema = "";
+    private String password = "";
 
     public int getNumeroEmpleado() {
         return numeroEmpleado;
@@ -154,32 +154,32 @@ public class Empleado extends DataLayerObject {
         this.password = password;
     }
 
-    public String toString(){
-        String output="";
-        output=this.getNumeroEmpleado()+";"+this.getNombre()+";"+this.getApellido()+";"+this.getFechaNacimiento()+";"+this.getTelefonoCasa()+";"+this.getTelefonoMovil()+
-                ";"+this.getCalle()+";"+this.getNumeroExterior_Interior()+";"+this.getMunicipio_Delegacion()+";"+this.getEstado()+";"+this.getCodigoPostal()+";"+
-                this.getTipoEmpleado_NumeroTipoEmpleado()+";"+this.getEstatusEnSistema()+";"+this.getUsuarioSistema()+";"+this.getPassword();
+    public String toString() {
+        String output = "";
+        output = this.getNumeroEmpleado() + ";" + this.getNombre() + ";" + this.getApellido() + ";" + this.getFechaNacimiento() + ";" + this.getTelefonoCasa() + ";" + this.getTelefonoMovil() +
+                ";" + this.getCalle() + ";" + this.getNumeroExterior_Interior() + ";" + this.getMunicipio_Delegacion() + ";" + this.getEstado() + ";" + this.getCodigoPostal() + ";" +
+                this.getTipoEmpleado_NumeroTipoEmpleado() + ";" + this.getEstatusEnSistema() + ";" + this.getUsuarioSistema() + ";" + this.getPassword();
         return output;
     }
 
-    public ContentValues toDB(){
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroEmpleado",this.getNumeroEmpleado());
-        output.put("Nombre",this.getNombre());
-        output.put("Apellido",this.getApellido());
-        output.put("FechaNacimiento",this.getFechaNacimiento());
-        output.put("TelefonoCasa",this.getTelefonoCasa());
-        output.put("TelefonoMovil",this.telefonoMovil);
-        output.put("Calle",this.getCalle());
-        output.put("NumeroExterior_interior",this.getNumeroExterior_Interior());
-        output.put("Municipio_Delegacion",this.getMunicipio_Delegacion());
-        output.put("Estado",this.getEstado());
-        output.put("CodigoPostal",this.getCodigoPostal());
-        output.put("TipoEmpleado_NumeroTipoEmpleado",this.getTipoEmpleado_NumeroTipoEmpleado());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
-        output.put("UsuarioSistema",this.getUsuarioSistema());
-        output.put("Password",this.getPassword());
+        output.put("NumeroEmpleado", this.getNumeroEmpleado());
+        output.put("Nombre", this.getNombre());
+        output.put("Apellido", this.getApellido());
+        output.put("FechaNacimiento", this.getFechaNacimiento());
+        output.put("TelefonoCasa", this.getTelefonoCasa());
+        output.put("TelefonoMovil", this.telefonoMovil);
+        output.put("Calle", this.getCalle());
+        output.put("NumeroExterior_interior", this.getNumeroExterior_Interior());
+        output.put("Municipio_Delegacion", this.getMunicipio_Delegacion());
+        output.put("Estado", this.getEstado());
+        output.put("CodigoPostal", this.getCodigoPostal());
+        output.put("TipoEmpleado_NumeroTipoEmpleado", this.getTipoEmpleado_NumeroTipoEmpleado());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
+        output.put("UsuarioSistema", this.getUsuarioSistema());
+        output.put("Password", this.getPassword());
 
         return output;
 

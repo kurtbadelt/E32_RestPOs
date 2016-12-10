@@ -10,9 +10,9 @@ public class IngredientesEnBodega extends DataLayerObject {
 
 
     private String nombreTabla = "IngredientesEnBodega";
-    private int ingrediente_NumeroIngrediente=0;
-    private int bodegaInventario_NumeroBodega=0;
-    private String estatusEnSistema="";
+    private int ingrediente_NumeroIngrediente = 0;
+    private int bodegaInventario_NumeroBodega = 0;
+    private String estatusEnSistema = "";
 
     public int getIngrediente_NumeroIngrediente() {
         return ingrediente_NumeroIngrediente;
@@ -46,16 +46,18 @@ public class IngredientesEnBodega extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getIngrediente_NumeroIngrediente()+";"+this.getBodegaInventario_NumeroBodega()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getIngrediente_NumeroIngrediente() + ";" + this.getBodegaInventario_NumeroBodega() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("Ingrediente_NumeroIngrediente",this.getIngrediente_NumeroIngrediente());
-        output.put("BodegaInventario_NumeroBodega",this.getBodegaInventario_NumeroBodega());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Ingrediente_NumeroIngrediente", this.getIngrediente_NumeroIngrediente());
+        output.put("BodegaInventario_NumeroBodega", this.getBodegaInventario_NumeroBodega());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

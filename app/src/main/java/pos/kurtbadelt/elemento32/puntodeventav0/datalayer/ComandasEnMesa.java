@@ -6,15 +6,15 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ComandasEnMesa extends DataLayerObject{
+public class ComandasEnMesa extends DataLayerObject {
 
-    private String nombreTabla="ComandasEnMesa";
-    private int comanda_NumeroComanda=0;
-    private int mesa_NumeroMesa=0;
-    private int mesa_NumeroEmpleado=0;
-    private int mesa_NumeroTipoEmpleado=0;
-    private int mesa_NumeroTipoMesa=0;
-    private String estatusEnSistema="";
+    private String nombreTabla = "ComandasEnMesa";
+    private int comanda_NumeroComanda = 0;
+    private int mesa_NumeroMesa = 0;
+    private int mesa_NumeroEmpleado = 0;
+    private int mesa_NumeroTipoEmpleado = 0;
+    private int mesa_NumeroTipoMesa = 0;
+    private String estatusEnSistema = "";
 
     public int getComanda_NumeroComanda() {
         return comanda_NumeroComanda;
@@ -23,6 +23,7 @@ public class ComandasEnMesa extends DataLayerObject{
     public void setComanda_NumeroComanda(int comanda_NumeroComanda) {
         this.comanda_NumeroComanda = comanda_NumeroComanda;
     }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -71,21 +72,23 @@ public class ComandasEnMesa extends DataLayerObject{
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getComanda_NumeroComanda()+";"+this.getMesa_NumeroMesa()+";"+this.getMesa_NumeroEmpleado()+";"+this.getMesa_NumeroTipoEmpleado()+";"
-                +this.getMesa_NumeroTipoMesa()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getComanda_NumeroComanda() + ";" + this.getMesa_NumeroMesa() + ";" + this.getMesa_NumeroEmpleado() + ";" + this.getMesa_NumeroTipoEmpleado() + ";"
+                + this.getMesa_NumeroTipoMesa() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("Comanda_NumeroComanda",this.getComanda_NumeroComanda());
-        output.put("Mesa_NumerDeMesa",this.getMesa_NumeroMesa());
-        output.put("Mesa_NumeroEmpleado",this.getMesa_NumeroEmpleado());
-        output.put("Mesa_NumeroTipoEmpleado",this.getMesa_NumeroTipoEmpleado());
-        output.put("Mesa_NumeroTipoMesa",this.getMesa_NumeroTipoMesa());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Comanda_NumeroComanda", this.getComanda_NumeroComanda());
+        output.put("Mesa_NumerDeMesa", this.getMesa_NumeroMesa());
+        output.put("Mesa_NumeroEmpleado", this.getMesa_NumeroEmpleado());
+        output.put("Mesa_NumeroTipoEmpleado", this.getMesa_NumeroTipoEmpleado());
+        output.put("Mesa_NumeroTipoMesa", this.getMesa_NumeroTipoMesa());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

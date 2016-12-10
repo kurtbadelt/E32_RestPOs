@@ -10,21 +10,21 @@ public class EvaluacionEmpleado extends DataLayerObject {
 
 
     private String nombreTabla = "EvaluacionEmpleado";
-    private int numeroEvaluacion=0;
-    private String descripcionPregunta1="";
-    private int evaluacionPregunta1=0;
-    private String descripcionPregunta2="";
-    private int evaluacionPregunta2=0;
-    private String descripcionPregunta3="";
-    private int evaluacionPregunta3=0;
-    private String descripcionPregunta4="";
-    private int evaluacionPregunta4=0;
-    private String descripcionPregunta5="";
-    private int evaluacionPregunta5=0;
-    private String comentariosSupervisor="";
-    private int empleado_NumeroEmpleado=0;
-    private int empleado_NumeroTipoEmpleado=0;
-    private String estatusEnSistema="";
+    private int numeroEvaluacion = 0;
+    private String descripcionPregunta1 = "";
+    private int evaluacionPregunta1 = 0;
+    private String descripcionPregunta2 = "";
+    private int evaluacionPregunta2 = 0;
+    private String descripcionPregunta3 = "";
+    private int evaluacionPregunta3 = 0;
+    private String descripcionPregunta4 = "";
+    private int evaluacionPregunta4 = 0;
+    private String descripcionPregunta5 = "";
+    private int evaluacionPregunta5 = 0;
+    private String comentariosSupervisor = "";
+    private int empleado_NumeroEmpleado = 0;
+    private int empleado_NumeroTipoEmpleado = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroEvaluacion() {
         return numeroEvaluacion;
@@ -154,31 +154,33 @@ public class EvaluacionEmpleado extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroEvaluacion()+";"+this.getDescripcionPregunta1()+";"+this.getEvaluacionPregunta1()+";"+this.getDescripcionPregunta2()+";"+
-                this.getEvaluacionPregunta2()+";"+this.getDescripcionPregunta3()+";"+this.getEvaluacionPregunta3()+";"+this.getDescripcionPregunta4()+";"+
-                this.getEvaluacionPregunta4()+";"+this.getDescripcionPregunta5()+";"+this.getEvaluacionPregunta5()+";"+this.getComentariosSupervisor()+";"+
-                this.getEmpleado_NumeroEmpleado()+";"+this.getEmpleado_NumeroEmpleado()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroEvaluacion() + ";" + this.getDescripcionPregunta1() + ";" + this.getEvaluacionPregunta1() + ";" + this.getDescripcionPregunta2() + ";" +
+                this.getEvaluacionPregunta2() + ";" + this.getDescripcionPregunta3() + ";" + this.getEvaluacionPregunta3() + ";" + this.getDescripcionPregunta4() + ";" +
+                this.getEvaluacionPregunta4() + ";" + this.getDescripcionPregunta5() + ";" + this.getEvaluacionPregunta5() + ";" + this.getComentariosSupervisor() + ";" +
+                this.getEmpleado_NumeroEmpleado() + ";" + this.getEmpleado_NumeroEmpleado() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroEvaluacion",this.getNumeroEvaluacion());
-        output.put("DescripcionPregunta1",this.getDescripcionPregunta1());
-        output.put("EvaluacionPregunta1",this.getEvaluacionPregunta1());
-        output.put("DescripcionPregunta2",this.getDescripcionPregunta2());
-        output.put("EvaluacionPregunta2",this.getEvaluacionPregunta2());
-        output.put("DescripcionPregunta3",this.getDescripcionPregunta3());
-        output.put("EvaluacionPregunta3",this.getEvaluacionPregunta3());
-        output.put("DescripcionPregunta4",this.getDescripcionPregunta4());
-        output.put("EvaluacionPregunta4",this.getEvaluacionPregunta4());
-        output.put("DescripcionPregunta5",this.getDescripcionPregunta5());
-        output.put("EvaluacionPregunta5",this.getEvaluacionPregunta5());
-        output.put("ComentariosSupervisor",this.getComentariosSupervisor());
-        output.put("Empleado_NumeroEmpleado",this.getEmpleado_NumeroEmpleado());
-        output.put("Empleado_NumeroTipoEmpleado",this.getEmpleado_NumeroTipoEmpleado());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroEvaluacion", this.getNumeroEvaluacion());
+        output.put("DescripcionPregunta1", this.getDescripcionPregunta1());
+        output.put("EvaluacionPregunta1", this.getEvaluacionPregunta1());
+        output.put("DescripcionPregunta2", this.getDescripcionPregunta2());
+        output.put("EvaluacionPregunta2", this.getEvaluacionPregunta2());
+        output.put("DescripcionPregunta3", this.getDescripcionPregunta3());
+        output.put("EvaluacionPregunta3", this.getEvaluacionPregunta3());
+        output.put("DescripcionPregunta4", this.getDescripcionPregunta4());
+        output.put("EvaluacionPregunta4", this.getEvaluacionPregunta4());
+        output.put("DescripcionPregunta5", this.getDescripcionPregunta5());
+        output.put("EvaluacionPregunta5", this.getEvaluacionPregunta5());
+        output.put("ComentariosSupervisor", this.getComentariosSupervisor());
+        output.put("Empleado_NumeroEmpleado", this.getEmpleado_NumeroEmpleado());
+        output.put("Empleado_NumeroTipoEmpleado", this.getEmpleado_NumeroTipoEmpleado());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

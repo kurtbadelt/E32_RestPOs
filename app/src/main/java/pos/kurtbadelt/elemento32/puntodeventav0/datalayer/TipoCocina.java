@@ -10,10 +10,10 @@ public class TipoCocina extends DataLayerObject {
 
 
     private String nombreTabla = "TipoCocina";
-    private int numeroTipoCocina=0;
-    private String nombreTipoCocina="";
-    private String descripcionTipoCocina="";
-    private String estatusEnSistema="";
+    private int numeroTipoCocina = 0;
+    private String nombreTipoCocina = "";
+    private String descripcionTipoCocina = "";
+    private String estatusEnSistema = "";
 
     public int getNumeroTipoCocina() {
         return numeroTipoCocina;
@@ -54,20 +54,21 @@ public class TipoCocina extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output= this.getNumeroTipoCocina()+";"+this.getNombreTipoCocina()+";"+this.getDescripcionTipoCocina()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroTipoCocina() + ";" + this.getNombreTipoCocina() + ";" + this.getDescripcionTipoCocina() + ";" + this.getEstatusEnSistema();
         return output;
     }
 
-    public ContentValues toDB(){
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroTipoCocina",this.getNumeroTipoCocina());
-        output.put("NombreTipoCocina",this.getNombreTipoCocina());
-        output.put("DescripcionTipoCocina",this.getDescripcionTipoCocina());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroTipoCocina", this.getNumeroTipoCocina());
+        output.put("NombreTipoCocina", this.getNombreTipoCocina());
+        output.put("DescripcionTipoCocina", this.getDescripcionTipoCocina());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 
     }
-    }
+}

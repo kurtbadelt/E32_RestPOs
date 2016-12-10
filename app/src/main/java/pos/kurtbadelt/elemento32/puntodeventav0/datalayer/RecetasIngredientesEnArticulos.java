@@ -10,13 +10,13 @@ public class RecetasIngredientesEnArticulos extends DataLayerObject {
 
 
     private String nombreTabla = "Recetas_IngredientesEnArticulos";
-    private int numeroReceta=0;
-    private int articulo_NumeroArticulo=0;
-    private int ingrediente_NumeroIngrediente=0;
-    private double cantidad=0;
-    private String formaMedicion="";
-    private String comentarios="";
-    private String estatusEnSistema="";
+    private int numeroReceta = 0;
+    private int articulo_NumeroArticulo = 0;
+    private int ingrediente_NumeroIngrediente = 0;
+    private double cantidad = 0;
+    private String formaMedicion = "";
+    private String comentarios = "";
+    private String estatusEnSistema = "";
 
     public int getNumeroReceta() {
         return numeroReceta;
@@ -41,6 +41,7 @@ public class RecetasIngredientesEnArticulos extends DataLayerObject {
     public void setNombreTabla(String nombreTabla) {
         this.nombreTabla = nombreTabla;
     }
+
     public int getIngrediente_NumeroIngrediente() {
         return ingrediente_NumeroIngrediente;
     }
@@ -80,22 +81,24 @@ public class RecetasIngredientesEnArticulos extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroReceta()+";"+this.getArticulo_NumeroArticulo()+";"+this.getIngrediente_NumeroIngrediente()+";"+this.getCantidad()+";"+
-                ";"+this.getFormaMedicion()+";"+this.getComentarios()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroReceta() + ";" + this.getArticulo_NumeroArticulo() + ";" + this.getIngrediente_NumeroIngrediente() + ";" + this.getCantidad() + ";" +
+                ";" + this.getFormaMedicion() + ";" + this.getComentarios() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroReceta",this.getNumeroReceta());
-        output.put("Articulos_NumeroArticulo",this.getArticulo_NumeroArticulo());
-        output.put("Ingrediente_NumeroIngrediente",this.getIngrediente_NumeroIngrediente());
-        output.put("Cantidad",this.getCantidad());
-        output.put("FormaMedicion",this.getFormaMedicion());
-        output.put("Comentarios",this.getComentarios());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroReceta", this.getNumeroReceta());
+        output.put("Articulos_NumeroArticulo", this.getArticulo_NumeroArticulo());
+        output.put("Ingrediente_NumeroIngrediente", this.getIngrediente_NumeroIngrediente());
+        output.put("Cantidad", this.getCantidad());
+        output.put("FormaMedicion", this.getFormaMedicion());
+        output.put("Comentarios", this.getComentarios());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

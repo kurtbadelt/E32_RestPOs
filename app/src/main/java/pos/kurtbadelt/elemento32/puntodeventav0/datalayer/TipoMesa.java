@@ -10,10 +10,10 @@ public class TipoMesa extends DataLayerObject {
 
 
     private String nombreTabla = "TipoMesa";
-    private int numeroTipoMesa=0;
-    private String nombreTipoMesa="";
-    private String descripcion="";
-    private String estatusEnSistema="";
+    private int numeroTipoMesa = 0;
+    private String nombreTipoMesa = "";
+    private String descripcion = "";
+    private String estatusEnSistema = "";
 
     public String getNombreTipoMesa() {
         return nombreTipoMesa;
@@ -54,18 +54,20 @@ public class TipoMesa extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroTipoMesa()+";"+this.getNombreTipoMesa()+";"+this.getDescripcion()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroTipoMesa() + ";" + this.getNombreTipoMesa() + ";" + this.getDescripcion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroTipoMesa",this.getNumeroTipoMesa());
-        output.put("NombreTipoMesa",this.getNombreTipoMesa());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroTipoMesa", this.getNumeroTipoMesa());
+        output.put("NombreTipoMesa", this.getNombreTipoMesa());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

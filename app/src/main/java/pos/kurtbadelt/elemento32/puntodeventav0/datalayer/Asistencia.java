@@ -6,17 +6,17 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class Asistencia extends DataLayerObject{
+public class Asistencia extends DataLayerObject {
 
 
-    private String nombreTabla="Asistencia";
-   private int numeroAsistencia=0;
-    private String fechaHoraEntrada="";
-    private String fechaHoraSalida="";
-    private String comentarios="";
-    private String estatusEnSistema="";
-    private int empleado_NumeroEmpleado=0;
-    private int empleado_NumeroTipoEmpleado=0;
+    private String nombreTabla = "Asistencia";
+    private int numeroAsistencia = 0;
+    private String fechaHoraEntrada = "";
+    private String fechaHoraSalida = "";
+    private String comentarios = "";
+    private String estatusEnSistema = "";
+    private int empleado_NumeroEmpleado = 0;
+    private int empleado_NumeroTipoEmpleado = 0;
 
     public int getNumeroAsistencia() {
         return numeroAsistencia;
@@ -25,6 +25,7 @@ public class Asistencia extends DataLayerObject{
     public void setNumeroAsistencia(int numeroAsistencia) {
         this.numeroAsistencia = numeroAsistencia;
     }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -80,22 +81,24 @@ public class Asistencia extends DataLayerObject{
     public void setEmpleado_NumeroTipoEmpleado(int empleado_NumeroTipoEmpleado) {
         this.empleado_NumeroTipoEmpleado = empleado_NumeroTipoEmpleado;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroAsistencia()+";"+this.getFechaHoraEntrada()+";"+this.getFechaHoraSalida()+";"+this.getComentarios()+";"+this.getEstatusEnSistema()+";"+
-                this.getEmpleado_NumeroEmpleado()+";"+this.getEmpleado_NumeroTipoEmpleado();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroAsistencia() + ";" + this.getFechaHoraEntrada() + ";" + this.getFechaHoraSalida() + ";" + this.getComentarios() + ";" + this.getEstatusEnSistema() + ";" +
+                this.getEmpleado_NumeroEmpleado() + ";" + this.getEmpleado_NumeroTipoEmpleado();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroAsistencia",this.getNumeroAsistencia());
-        output.put("FechaHoraEntrada",this.getFechaHoraEntrada());
-        output.put("FechaHoraSalida",this.getFechaHoraSalida());
-        output.put("Comentarios",this.getComentarios());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
-        output.put("Empleado_NumeroEmpleado",this.getEmpleado_NumeroEmpleado());
-        output.put("Empleado_NumeroTipoEmpleado",this.getEmpleado_NumeroTipoEmpleado());
+        output.put("NumeroAsistencia", this.getNumeroAsistencia());
+        output.put("FechaHoraEntrada", this.getFechaHoraEntrada());
+        output.put("FechaHoraSalida", this.getFechaHoraSalida());
+        output.put("Comentarios", this.getComentarios());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
+        output.put("Empleado_NumeroEmpleado", this.getEmpleado_NumeroEmpleado());
+        output.put("Empleado_NumeroTipoEmpleado", this.getEmpleado_NumeroTipoEmpleado());
 
         return output;
 

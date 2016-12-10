@@ -6,14 +6,14 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class BodegaInventario extends DataLayerObject{
+public class BodegaInventario extends DataLayerObject {
 
-    private String nombreTabla="BodegaInventario";
-    private int numeroBodega=0;
-    private String nombreBodega="";
-    private String descripcion="";
-    private String ubicacion="";
-    private String estatusEnSistema="";
+    private String nombreTabla = "BodegaInventario";
+    private int numeroBodega = 0;
+    private String nombreBodega = "";
+    private String descripcion = "";
+    private String ubicacion = "";
+    private String estatusEnSistema = "";
 
     public int getNumeroBodega() {
         return numeroBodega;
@@ -51,6 +51,10 @@ public class BodegaInventario extends DataLayerObject{
         return estatusEnSistema;
     }
 
+    public void setEstatusEnSistema(String estatusEnSistema) {
+        this.estatusEnSistema = estatusEnSistema;
+    }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -59,22 +63,19 @@ public class BodegaInventario extends DataLayerObject{
         this.nombreTabla = nombreTabla;
     }
 
-
-    public void setEstatusEnSistema(String estatusEnSistema) {
-        this.estatusEnSistema = estatusEnSistema;
-    }
-    public String toString(){
-        String output="";
-        output=this.getNumeroBodega()+";"+this.getNombreBodega()+";"+this.getDescripcion()+";"+this.getUbicacion()+";"+this.getEstatusEnSistema();
+    public String toString() {
+        String output = "";
+        output = this.getNumeroBodega() + ";" + this.getNombreBodega() + ";" + this.getDescripcion() + ";" + this.getUbicacion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroBodega",this.getNumeroBodega());
-        output.put("NombreBodega",this.getNombreBodega());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("Ubicacion",this.getUbicacion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroBodega", this.getNumeroBodega());
+        output.put("NombreBodega", this.getNombreBodega());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("Ubicacion", this.getUbicacion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

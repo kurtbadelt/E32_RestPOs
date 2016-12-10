@@ -10,11 +10,11 @@ public class Venta extends DataLayerObject {
 
 
     private String nombreTabla = "Venta";
-    private int numeroTicket=0;
-    private int numeroFactura=0;
-    private double montoTotal=0;
-    private String estatusEnSistema="";
-    private int tipoDePago_NumeroTipoPago=0;
+    private int numeroTicket = 0;
+    private int numeroFactura = 0;
+    private double montoTotal = 0;
+    private String estatusEnSistema = "";
+    private int tipoDePago_NumeroTipoPago = 0;
 
     public int getNumeroTicket() {
         return numeroTicket;
@@ -63,18 +63,20 @@ public class Venta extends DataLayerObject {
     public void setTipoDePago_NumeroTipoPago(int tipoDePago_NumeroTipoPago) {
         this.tipoDePago_NumeroTipoPago = tipoDePago_NumeroTipoPago;
     }
-    public String toString(){
-        String output="";
-        output= this.getNumeroTicket()+";"+this.getNumeroFactura()+";"+this.getMontoTotal()+";"+this.getEstatusEnSistema()+";"+this.getTipoDePago_NumeroTipoPago();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroTicket() + ";" + this.getNumeroFactura() + ";" + this.getMontoTotal() + ";" + this.getEstatusEnSistema() + ";" + this.getTipoDePago_NumeroTipoPago();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroTicket",this.getNumeroTicket());
-        output.put("NumeroFactura",this.getNumeroFactura());
-        output.put("MontoTotal",this.getMontoTotal());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
-        output.put("TipoDePago_NumeroTipoPago",this.getTipoDePago_NumeroTipoPago());
+        output.put("NumeroTicket", this.getNumeroTicket());
+        output.put("NumeroFactura", this.getNumeroFactura());
+        output.put("MontoTotal", this.getMontoTotal());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
+        output.put("TipoDePago_NumeroTipoPago", this.getTipoDePago_NumeroTipoPago());
 
         return output;
 

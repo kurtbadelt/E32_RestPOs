@@ -6,12 +6,12 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ArticulosEnMenu extends DataLayerObject{
+public class ArticulosEnMenu extends DataLayerObject {
 
-    private String nombreTabla="ArticulosEnMenu";
-    private int menu_NumeroMenu=0;
-    private int articulos_NumeroArticulo=0;
-    private String estatusEnSistema="";
+    private String nombreTabla = "ArticulosEnMenu";
+    private int menu_NumeroMenu = 0;
+    private int articulos_NumeroArticulo = 0;
+    private String estatusEnSistema = "";
 
     public String getEstatusEnSistema() {
         return estatusEnSistema;
@@ -36,6 +36,7 @@ public class ArticulosEnMenu extends DataLayerObject{
     public void setArticulos_NumeroArticulo(int articulos_NumeroArticulo) {
         this.articulos_NumeroArticulo = articulos_NumeroArticulo;
     }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -44,16 +45,17 @@ public class ArticulosEnMenu extends DataLayerObject{
         this.nombreTabla = nombreTabla;
     }
 
-    public String toString(){
-        String output="";
-        output=this.getMenu_NumeroMenu()+";"+this.getArticulos_NumeroArticulo()+";"+this.getEstatusEnSistema();
+    public String toString() {
+        String output = "";
+        output = this.getMenu_NumeroMenu() + ";" + this.getArticulos_NumeroArticulo() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("Menu_NumeroMenu",this.getMenu_NumeroMenu());
-        output.put("Articulos_NumeroArticulo",this.getArticulos_NumeroArticulo());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Menu_NumeroMenu", this.getMenu_NumeroMenu());
+        output.put("Articulos_NumeroArticulo", this.getArticulos_NumeroArticulo());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

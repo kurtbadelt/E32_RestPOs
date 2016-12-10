@@ -6,13 +6,13 @@ import android.content.ContentValues;
  * Created by kurtbadelt on 11/2/16.
  */
 
-public class ArticulosEnComanda  extends DataLayerObject{
+public class ArticulosEnComanda extends DataLayerObject {
 
 
     private String nombreTabla = "ArticulosEnComanda";
-    private int comanda_NumeroComanda=0;
-    private int articulos_NumeroArticulo=0;
-    private String estatusEnSistema="";
+    private int comanda_NumeroComanda = 0;
+    private int articulos_NumeroArticulo = 0;
+    private String estatusEnSistema = "";
 
     public String getEstatusEnSistema() {
         return estatusEnSistema;
@@ -37,6 +37,7 @@ public class ArticulosEnComanda  extends DataLayerObject{
     public void setArticulos_NumeroArticulo(int articulos_NumeroArticulo) {
         this.articulos_NumeroArticulo = articulos_NumeroArticulo;
     }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -45,15 +46,16 @@ public class ArticulosEnComanda  extends DataLayerObject{
         this.nombreTabla = nombreTabla;
     }
 
-    public String toString(){
-        String output=this.getComanda_NumeroComanda()+";"+this.getArticulos_NumeroArticulo()+";"+this.getEstatusEnSistema();
+    public String toString() {
+        String output = this.getComanda_NumeroComanda() + ";" + this.getArticulos_NumeroArticulo() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("Comanda_NumeroComanda",this.getComanda_NumeroComanda());
-        output.put("Articulos_NumeroArticulo",this.getArticulos_NumeroArticulo());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Comanda_NumeroComanda", this.getComanda_NumeroComanda());
+        output.put("Articulos_NumeroArticulo", this.getArticulos_NumeroArticulo());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

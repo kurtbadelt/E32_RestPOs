@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.Articulo;
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.ArticulosEnComanda;
@@ -94,16 +93,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /**
-     *  Pendiente de Arreglar Query
+     * Pendiente de Arreglar Query
+     *
      * @return
      */
-    public List<Articulo> getAllArticulo(){
+    public List<Articulo> getAllArticulo() {
         Articulo articulo = null;
         List<Articulo> listaArticulos = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Articulos",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Articulos where EstatusEnSistema='Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             articulo = new Articulo();
 
             articulo.setNumeroArticulo(cursor.getInt(0));
@@ -122,13 +122,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaArticulos;
     }
 
-    public List<ArticulosEnComanda> getAllArticulosEnComanda(){
+    public List<ArticulosEnComanda> getAllArticulosEnComanda() {
         ArticulosEnComanda articulosEnComanda = null;
         List<ArticulosEnComanda> listaArticulosEnComanda = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnComanda where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnComanda where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             articulosEnComanda = new ArticulosEnComanda();
 
             articulosEnComanda.setComanda_NumeroComanda(cursor.getInt(0));
@@ -144,13 +144,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaArticulosEnComanda;
     }
 
-    public List<ArticulosEnMenu> getAllArticulosEnMenu(){
+    public List<ArticulosEnMenu> getAllArticulosEnMenu() {
         ArticulosEnMenu articulosEnMenu = null;
         List<ArticulosEnMenu> listaArticulosEnMenu = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnMenu where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnMenu where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             articulosEnMenu = new ArticulosEnMenu();
 
             articulosEnMenu.setMenu_NumeroMenu(cursor.getInt(0));
@@ -165,13 +165,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         closeDatabase();
         return listaArticulosEnMenu;
     }
+
     public List<ArticulosEnPromocion> getAllArticulosEnPromocion() {
         ArticulosEnPromocion articulosEnPromocion = null;
         List<ArticulosEnPromocion> listaArticulosEnPromocion = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnPromocion where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ArticulosEnPromocion where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
 
             articulosEnPromocion = new ArticulosEnPromocion();
 
@@ -189,14 +190,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Asistencia> getAllAsistencia(){
+    public List<Asistencia> getAllAsistencia() {
         Asistencia asistencia = null;
-        List <Asistencia> listaAsistencia = new ArrayList<>();
+        List<Asistencia> listaAsistencia = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Asistencia where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Asistencia where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
 
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
 
             asistencia = new Asistencia();
 
@@ -216,13 +217,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaAsistencia;
     }
 
-    public List<BodegaInventario> getAllBodegaInventario(){
+    public List<BodegaInventario> getAllBodegaInventario() {
         BodegaInventario bodegaInventario = null;
-        List <BodegaInventario> listaBodegaInventario = new ArrayList<>();
+        List<BodegaInventario> listaBodegaInventario = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from BodegaInventario where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from BodegaInventario where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
 
             bodegaInventario = new BodegaInventario();
 
@@ -243,13 +244,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Cancelaciones> getAllCancelaciones(){
+    public List<Cancelaciones> getAllCancelaciones() {
         Cancelaciones cancelaciones = null;
         List<Cancelaciones> listaCancelaciones = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Cancelaciones where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Cancelaciones where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             cancelaciones = new Cancelaciones();
 
             cancelaciones.setNumeroCancelacion(cursor.getInt(0));
@@ -268,13 +269,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<CategoriaMenu> getAllCategoriaMenu(){
-        CategoriaMenu categoriaMenu =null;
+    public List<CategoriaMenu> getAllCategoriaMenu() {
+        CategoriaMenu categoriaMenu = null;
         List<CategoriaMenu> listaCategoriaMenu = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from CategoriaMenu where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from CategoriaMenu where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
 
             categoriaMenu = new CategoriaMenu();
 
@@ -293,13 +294,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaCategoriaMenu;
     }
 
-    public List<Cocina> getAllCocina(){
+    public List<Cocina> getAllCocina() {
         Cocina cocina = null;
         List<Cocina> listaCocina = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Cocina where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Cocina where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             cocina = new Cocina();
 
             cocina.setNumeroCocina(cursor.getInt(0));
@@ -316,13 +317,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaCocina;
     }
 
-    public List<Comanda> getAllComanda(){
+    public List<Comanda> getAllComanda() {
         Comanda comanda = null;
         List<Comanda> listaComanda = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Comanda where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Comanda where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             comanda = new Comanda();
 
             comanda.setNumeroComanda(cursor.getInt(0));
@@ -339,13 +340,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaComanda;
     }
 
-    public List<ComandasEnCocina> getAllComandasEnCocina(){
+    public List<ComandasEnCocina> getAllComandasEnCocina() {
         ComandasEnCocina comandasEnCocina = null;
         List<ComandasEnCocina> listaComandasEnCocina = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnCocina where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnCocina where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             comandasEnCocina = new ComandasEnCocina();
 
             comandasEnCocina.setCocina_NumeroCocina(cursor.getInt(0));
@@ -361,13 +362,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<ComandasEnMesa> getAllComandasEnMesa(){
+    public List<ComandasEnMesa> getAllComandasEnMesa() {
         ComandasEnMesa comandasEnMesa = null;
         List<ComandasEnMesa> listaComandasEnMesa = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnMesa where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnMesa where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             comandasEnMesa = new ComandasEnMesa();
 
             comandasEnMesa.setComanda_NumeroComanda(cursor.getInt(0));
@@ -386,13 +387,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<ComandasEnVenta> getAllComandasEnVenta(){
+    public List<ComandasEnVenta> getAllComandasEnVenta() {
         ComandasEnVenta comandasEnVenta = null;
         List<ComandasEnVenta> listaComandasEnVenta = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnVenta where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from ComandasEnVenta where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             comandasEnVenta = new ComandasEnVenta();
 
             comandasEnVenta.setVenta_NumeroTicket(cursor.getInt(0));
@@ -408,13 +409,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaComandasEnVenta;
     }
 
-    public List<Comensales> getAllComensales(){
+    public List<Comensales> getAllComensales() {
         Comensales comensales = null;
         List<Comensales> listaComensales = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Comensales where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Comensales where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             comensales = new Comensales();
 
             comensales.setNumeroComensal(cursor.getInt(0));
@@ -468,13 +469,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<EncuestaSatisfaccion> getAllEncuestaSatisfaccion(){
+    public List<EncuestaSatisfaccion> getAllEncuestaSatisfaccion() {
         EncuestaSatisfaccion encuestaSatisfaccion = null;
         List<EncuestaSatisfaccion> listaEncuestaSatisfaccion = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EncuestaSatisfaccion where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EncuestaSatisfaccion where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             encuestaSatisfaccion = new EncuestaSatisfaccion();
 
             encuestaSatisfaccion.setNumeroEncuesta(cursor.getInt(0));
@@ -502,13 +503,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<EstatusComanda> getAllEstatusComanda(){
+    public List<EstatusComanda> getAllEstatusComanda() {
         EstatusComanda estatusComanda = null;
         List<EstatusComanda> listaEstatusComanda = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EstatusComanda where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusComanda where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             estatusComanda = new EstatusComanda();
 
             estatusComanda.setNumeroEstatus(cursor.getInt(0));
@@ -524,13 +525,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaEstatusComanda;
     }
 
-    public List<EstatusDeComandas> getAllEstatusDeComandas(){
+    public List<EstatusDeComandas> getAllEstatusDeComandas() {
         EstatusDeComandas estatusDeComandas = null;
         List<EstatusDeComandas> listaEstatusDeComandas = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EstatusDeComandas where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusDeComandas where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             estatusDeComandas = new EstatusDeComandas();
 
             estatusDeComandas.setEstatusComanda_NumeroEstatus(cursor.getInt(0));
@@ -546,13 +547,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaEstatusDeComandas;
     }
 
-    public List<EstatusIngrediente> getAllEstatusIngrediente(){
-        EstatusIngrediente estatusIngrediente =null;
+    public List<EstatusIngrediente> getAllEstatusIngrediente() {
+        EstatusIngrediente estatusIngrediente = null;
         List<EstatusIngrediente> listaEstatusIngrediente = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngrediente where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngrediente where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             estatusIngrediente = new EstatusIngrediente();
 
             estatusIngrediente.setNumeroEstatusIngrediente(cursor.getInt(0));
@@ -569,13 +570,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaEstatusIngrediente;
     }
 
-    public List<EstatusIngredientes> getAllEstatusIngredientes(){
+    public List<EstatusIngredientes> getAllEstatusIngredientes() {
         EstatusIngredientes estatusIngredientes = null;
         List<EstatusIngredientes> listaEstatusIngredientes = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngredientes where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EstatusIngredientes where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             estatusIngredientes = new EstatusIngredientes();
 
             estatusIngredientes.setIngrediente_NumeroIngrediente(cursor.getInt(0));
@@ -590,13 +591,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaEstatusIngredientes;
     }
 
-    public List<EvaluacionEmpleado> getAllEvaluacionEmpleado(){
+    public List<EvaluacionEmpleado> getAllEvaluacionEmpleado() {
         EvaluacionEmpleado evaluacionEmpleado = null;
         List<EvaluacionEmpleado> listaEvaluacionEmpleado = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from EvaluacionEmpleado where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from EvaluacionEmpleado where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             evaluacionEmpleado = new EvaluacionEmpleado();
 
             evaluacionEmpleado.setNumeroEvaluacion(cursor.getInt(0));
@@ -623,13 +624,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaEvaluacionEmpleado;
     }
 
-    public List<Facturas> getAllFacturas(){
+    public List<Facturas> getAllFacturas() {
         Facturas facturas = null;
         List<Facturas> listaFacturas = new ArrayList<>();
         openDatabase();
         Cursor cursor = mDatabase.rawQuery("select * from Facturas where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             facturas = new Facturas();
 
             facturas.setNumeroFactura(cursor.getInt(0));
@@ -649,13 +650,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaFacturas;
     }
 
-    public List<Ingrediente> getAllIngrediente(){
-        Ingrediente ingrediente =null;
+    public List<Ingrediente> getAllIngrediente() {
+        Ingrediente ingrediente = null;
         List<Ingrediente> listaIngrediente = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Ingrediente where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Ingrediente where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             ingrediente = new Ingrediente();
 
             ingrediente.setNumeroIngrediente(cursor.getInt(0));
@@ -680,13 +681,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<IngredientesEnBodega> selectAllIngredientesEnBodega(){
+    public List<IngredientesEnBodega> selectAllIngredientesEnBodega() {
         IngredientesEnBodega ingredientesEnBodega = null;
-        List <IngredientesEnBodega> listaIngredientesEnBodega = new ArrayList<>();
+        List<IngredientesEnBodega> listaIngredientesEnBodega = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from IngredientesEnBodega where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from IngredientesEnBodega where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             ingredientesEnBodega = new IngredientesEnBodega();
 
             ingredientesEnBodega.setIngrediente_NumeroIngrediente(cursor.getInt(0));
@@ -702,13 +703,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<MenuRestaurante> getAllMenuRestaurante(){
-    MenuRestaurante menuRestaurante = null;
+    public List<MenuRestaurante> getAllMenuRestaurante() {
+        MenuRestaurante menuRestaurante = null;
         List<MenuRestaurante> listaMenuRestaurante = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Menu where EstatusEnSistema ='Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Menu where EstatusEnSistema ='Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             menuRestaurante = new MenuRestaurante();
 
             menuRestaurante.setNumeroMenu(cursor.getInt(0));
@@ -724,13 +725,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaMenuRestaurante;
     }
 
-    public List<Mesa> getAllMesa(){
+    public List<Mesa> getAllMesa() {
         Mesa mesa = null;
         List<Mesa> listaMesa = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Mesa where EstatusEnSistema ='Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Mesa where EstatusEnSistema ='Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             mesa = new Mesa();
 
             mesa.setNumeroDeMesa(cursor.getInt(0));
@@ -749,13 +750,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaMesa;
     }
 
-    public List<MotivosCancelacion> getAllMotivosCancelacion(){
+    public List<MotivosCancelacion> getAllMotivosCancelacion() {
         MotivosCancelacion motivosCancelacion = null;
         List<MotivosCancelacion> listaMotivosCancelacion = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from MotivosCancelacion where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from MotivosCancelacion where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             motivosCancelacion = new MotivosCancelacion();
 
             motivosCancelacion.setNumeroMotivo(cursor.getInt(0));
@@ -771,13 +772,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaMotivosCancelacion;
     }
 
-    public List<Promociones> getAllPromociones(){
+    public List<Promociones> getAllPromociones() {
         Promociones promociones = null;
         List<Promociones> listaPromociones = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Promociones where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Promociones where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             promociones = new Promociones();
 
             promociones.setNumeroPromocion(cursor.getInt(0));
@@ -822,12 +823,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaRecetas;
     }
 
-    public List<ReservacionMesa> getAllReservacionMesa(){
+    public List<ReservacionMesa> getAllReservacionMesa() {
         ReservacionMesa reservacionMesa = null;
         List<ReservacionMesa> listaReservacionesMesa = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from ReservacionMesa where EstatusEnSistema = 'Activo'",null);
-        while (!cursor.isAfterLast()){
+        Cursor cursor = mDatabase.rawQuery("select * from ReservacionMesa where EstatusEnSistema = 'Activo'", null);
+        while (!cursor.isAfterLast()) {
             reservacionMesa = new ReservacionMesa();
 
             reservacionMesa.setMesa_numeroMesa(cursor.getInt(0));
@@ -847,13 +848,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List<Reservaciones> getAllReservaciones(){
+    public List<Reservaciones> getAllReservaciones() {
         Reservaciones reservaciones = null;
         List<Reservaciones> listaReservaciones = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Reservaciones where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Reservaciones where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             reservaciones = new Reservaciones();
 
             reservaciones.setNumeroReservacion(cursor.getInt(0));
@@ -873,13 +874,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaReservaciones;
     }
 
-    public List<TicketsFacturas> getAllTicketFacturas(){
-        TicketsFacturas ticketsFacturas =null;
+    public List<TicketsFacturas> getAllTicketFacturas() {
+        TicketsFacturas ticketsFacturas = null;
         List<TicketsFacturas> listaTicketFacturas = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from TicketsFacturas where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from TicketsFacturas where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             ticketsFacturas = new TicketsFacturas();
 
             ticketsFacturas.setVenta_NumeroTicket(cursor.getInt(0));
@@ -896,13 +897,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<TipoCocina> getAllTipoCocina(){
+    public List<TipoCocina> getAllTipoCocina() {
         TipoCocina tipoCocina = null;
         List<TipoCocina> listaTipoCocina = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from TipoCocina where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from TipoCocina where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             tipoCocina = new TipoCocina();
 
             tipoCocina.setNumeroTipoCocina(cursor.getInt(0));
@@ -919,16 +920,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * @return
      */
-    public List<TipoPago> getAllTipoPago(){
+    public List<TipoPago> getAllTipoPago() {
         TipoPago tipoPago = null;
         List<TipoPago> listaTipoPago = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from TipoDePago where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from TipoDePago where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             tipoPago = new TipoPago();
 
             tipoPago.setNumeroTipoDePago(cursor.getInt(0));
@@ -945,13 +945,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<TipoEmpleado> getAllTipoEmpleado(){
+    public List<TipoEmpleado> getAllTipoEmpleado() {
         TipoEmpleado tipoEmpleado = null;
         List<TipoEmpleado> listaTipoEmpleado = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from TipoEmpleado where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from TipoEmpleado where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while(!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             tipoEmpleado = new TipoEmpleado();
 
             tipoEmpleado.setNumeroTipoEmpleado(cursor.getInt(0));
@@ -990,13 +990,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listaTipoMesas;
     }
 
-    public List<Venta> getAllVentas(){
+    public List<Venta> getAllVentas() {
         Venta venta = null;
         List<Venta> listaVentas = new ArrayList<>();
         openDatabase();
-        Cursor cursor = mDatabase.rawQuery("select * from Venta where EstatusEnSistema = 'Activo'",null);
+        Cursor cursor = mDatabase.rawQuery("select * from Venta where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
+        while (!cursor.isAfterLast()) {
             venta = new Venta();
 
             venta.setNumeroTicket(cursor.getInt(0));
@@ -1012,8 +1012,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         closeDatabase();
         return listaVentas;
     }
-
-
 
 
 // End of Select All ------------------------------------------------------------------------------

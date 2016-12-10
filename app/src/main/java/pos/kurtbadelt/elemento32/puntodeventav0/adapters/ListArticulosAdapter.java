@@ -15,12 +15,11 @@ import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.Articulo;
  * Created by kurtbadelt on 12/9/16.
  */
 
-public class ListArticulosAdapter extends BaseAdapter
-{
+public class ListArticulosAdapter extends BaseAdapter {
     private Context mContext;
     private List<Articulo> listaArticulos;
 
-    public ListArticulosAdapter(Context context, List<Articulo> listaArticulos){
+    public ListArticulosAdapter(Context context, List<Articulo> listaArticulos) {
         this.mContext = context;
         this.listaArticulos = listaArticulos;
     }
@@ -42,17 +41,17 @@ public class ListArticulosAdapter extends BaseAdapter
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View vista = View.inflate(mContext, R.layout.articulos_listview,null);
+        View vista = View.inflate(mContext, R.layout.articulos_listview, null);
 
-        TextView tvNumeroArticulo = (TextView)vista.findViewById(R.id.tv_Articulos_NumeroArticulo);
-        TextView tvNombreArticulo = (TextView)vista.findViewById(R.id.tv_Articulos_NombreArticulo);
-        TextView tvDescripcionArticulo = (TextView)vista.findViewById(R.id.tv_Articulos_DescripcionArticulo);
+        TextView tvNumeroArticulo = (TextView) vista.findViewById(R.id.tv_Articulos_NumeroArticulo);
+        TextView tvNombreArticulo = (TextView) vista.findViewById(R.id.tv_Articulos_NombreArticulo);
+        TextView tvDescripcionArticulo = (TextView) vista.findViewById(R.id.tv_Articulos_DescripcionArticulo);
         TextView tvPrecio = (TextView) vista.findViewById(R.id.tv_Articulos_PrecioArticulo);
 
         return null;
     }
 
-    public void updateList(List<Articulo> listaArticulos){
+    public void updateList(List<Articulo> listaArticulos) {
         this.listaArticulos.clear();
         listaArticulos.addAll(listaArticulos);
         this.notifyDataSetChanged();

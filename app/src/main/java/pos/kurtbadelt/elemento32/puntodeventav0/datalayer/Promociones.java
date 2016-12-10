@@ -10,13 +10,13 @@ public class Promociones extends DataLayerObject {
 
 
     private String nombreTabla = "Promociones";
-    private int numeroPromocion=0;
-    private String nombrePromocion="";
-    private String descripcion="";
-    private String inicioPromocion="";
-    private String finPromocion="";
-    private double descuento=0;
-    private String estatusEnSistema="";
+    private int numeroPromocion = 0;
+    private String nombrePromocion = "";
+    private String descripcion = "";
+    private String inicioPromocion = "";
+    private String finPromocion = "";
+    private double descuento = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroPromocion() {
         return numeroPromocion;
@@ -81,22 +81,24 @@ public class Promociones extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroPromocion()+";"+this.getNombrePromocion()+";"+this.getDescripcion()+";"+this.getInicioPromocion()+";"+this.getFinPromocion()+";"+
-                this.getDescuento()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroPromocion() + ";" + this.getNombrePromocion() + ";" + this.getDescripcion() + ";" + this.getInicioPromocion() + ";" + this.getFinPromocion() + ";" +
+                this.getDescuento() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroPromocion",this.getNumeroPromocion());
-        output.put("NombrePromocion",this.getNombrePromocion());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("InicioPromocion",this.getInicioPromocion());
-        output.put("finPromocion",this.getFinPromocion());
-        output.put("Descuento",this.getDescuento());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroPromocion", this.getNumeroPromocion());
+        output.put("NombrePromocion", this.getNombrePromocion());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("InicioPromocion", this.getInicioPromocion());
+        output.put("finPromocion", this.getFinPromocion());
+        output.put("Descuento", this.getDescuento());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

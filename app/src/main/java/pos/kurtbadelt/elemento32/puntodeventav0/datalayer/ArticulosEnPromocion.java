@@ -9,10 +9,10 @@ import android.content.ContentValues;
 public class ArticulosEnPromocion extends DataLayerObject {
 
 
-    private String nombreTabla ="ArticulosEnPromocion";
-    private int articulos_NumeroArticulo=0;
-    private int promociones_NumeroPromocion=0;
-    private String estatusEnSistema="";
+    private String nombreTabla = "ArticulosEnPromocion";
+    private int articulos_NumeroArticulo = 0;
+    private int promociones_NumeroPromocion = 0;
+    private String estatusEnSistema = "";
 
     public int getArticulos_NumeroArticulo() {
         return articulos_NumeroArticulo;
@@ -37,6 +37,7 @@ public class ArticulosEnPromocion extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
+
     public String getNombreTabla() {
         return nombreTabla;
     }
@@ -44,16 +45,18 @@ public class ArticulosEnPromocion extends DataLayerObject {
     public void setNombreTabla(String nombreTabla) {
         this.nombreTabla = nombreTabla;
     }
-    public String toString(){
-        String output="";
-        output=this.getArticulos_NumeroArticulo()+";"+this.getPromociones_NumeroPromocion()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getArticulos_NumeroArticulo() + ";" + this.getPromociones_NumeroPromocion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("Articulos_NumeroArticulo",this.getArticulos_NumeroArticulo());
-        output.put("Promociones_NumeroPromocion",this.getPromociones_NumeroPromocion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Articulos_NumeroArticulo", this.getArticulos_NumeroArticulo());
+        output.put("Promociones_NumeroPromocion", this.getPromociones_NumeroPromocion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

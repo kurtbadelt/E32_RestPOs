@@ -10,10 +10,10 @@ public class TicketsFacturas extends DataLayerObject {
 
 
     private String nombreTabla = "TicketsFacturas";
-    private int venta_NumeroTicket=0;
-    private int venta_NumeroTipoPago=0;
-    private int facturas_NumeroFactura=0;
-    private String estatusEnSistema="";
+    private int venta_NumeroTicket = 0;
+    private int venta_NumeroTipoPago = 0;
+    private int facturas_NumeroFactura = 0;
+    private String estatusEnSistema = "";
 
     public int getVenta_NumeroTicket() {
         return venta_NumeroTicket;
@@ -54,18 +54,20 @@ public class TicketsFacturas extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output = this.getVenta_NumeroTicket()+";"+this.getVenta_NumeroTipoPago()+";"+this.getFacturas_NumeroFactura()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getVenta_NumeroTicket() + ";" + this.getVenta_NumeroTipoPago() + ";" + this.getFacturas_NumeroFactura() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("Venta_NumeroTicket",this.getVenta_NumeroTicket());
-        output.put("Venta_NumeroTIpoPago",this.getVenta_NumeroTipoPago());
-        output.put("Facturas_NumeroFactura",this.getFacturas_NumeroFactura());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Venta_NumeroTicket", this.getVenta_NumeroTicket());
+        output.put("Venta_NumeroTIpoPago", this.getVenta_NumeroTipoPago());
+        output.put("Facturas_NumeroFactura", this.getFacturas_NumeroFactura());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

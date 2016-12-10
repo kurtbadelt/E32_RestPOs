@@ -36,7 +36,7 @@ public class ListRecetasAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View vista = View.inflate(mContext, R.layout.recetas_listview,null);
+        View vista = View.inflate(mContext, R.layout.recetas_listview, null);
 
         TextView tvNumeroReceta = (TextView) vista.findViewById(R.id.tv_Recetas_NumeroDeReceta);
         TextView tvNumeroArticuloEnReceta = (TextView) vista.findViewById(R.id.tv_Recetas_NumeroArticuloEnReceta);
@@ -46,19 +46,19 @@ public class ListRecetasAdapter extends BaseAdapter {
         TextView tvComentariosReceta = (TextView) vista.findViewById(R.id.tv_Recetas_Comentarios);
         TextView tvEstatusEnSistema = (TextView) vista.findViewById(R.id.tv_Recetas_EstatusEnSistema);
 
-        tvNumeroReceta.setText("Numero de Receta: "+mListaRecetas.get(i).getNumeroReceta());
-        tvNumeroArticuloEnReceta.setText("Numero Articulo: "+mListaRecetas.get(i).getArticulo_NumeroArticulo());
-        tvIngredienteEnReceta.setText("Numero de Ingrediente: "+mListaRecetas.get(i).getIngrediente_NumeroIngrediente());
-        tvCantidadIngrediente.setText("Cantidad Ingrediente: "+mListaRecetas.get(i).getCantidad());
-        tvFormaMedicion.setText("Forma de Medida: "+mListaRecetas.get(i).getFormaMedicion());
-        tvComentariosReceta.setText("Comentarios: "+mListaRecetas.get(i).getComentarios());
-        tvEstatusEnSistema.setText(("Estatus en Sistema: "+mListaRecetas.get(i).getEstatusEnSistema()));
+        tvNumeroReceta.setText("Numero de Receta: " + mListaRecetas.get(i).getNumeroReceta());
+        tvNumeroArticuloEnReceta.setText("Numero Articulo: " + mListaRecetas.get(i).getArticulo_NumeroArticulo());
+        tvIngredienteEnReceta.setText("Numero de Ingrediente: " + mListaRecetas.get(i).getIngrediente_NumeroIngrediente());
+        tvCantidadIngrediente.setText("Cantidad Ingrediente: " + mListaRecetas.get(i).getCantidad());
+        tvFormaMedicion.setText("Forma de Medida: " + mListaRecetas.get(i).getFormaMedicion());
+        tvComentariosReceta.setText("Comentarios: " + mListaRecetas.get(i).getComentarios());
+        tvEstatusEnSistema.setText(("Estatus en Sistema: " + mListaRecetas.get(i).getEstatusEnSistema()));
 
 
         return vista;
     }
 
-    public void updateList(List<RecetasIngredientesEnArticulos> listItem){
+    public void updateList(List<RecetasIngredientesEnArticulos> listItem) {
         mListaRecetas.clear();
         mListaRecetas.addAll(listItem);
         this.notifyDataSetChanged();

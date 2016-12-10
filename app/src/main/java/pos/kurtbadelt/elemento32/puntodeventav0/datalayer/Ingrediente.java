@@ -10,17 +10,17 @@ public class Ingrediente extends DataLayerObject {
 
 
     private String nombreTabla = "Ingrediente";
-    private int numeroIngrediente=0;
-    private String nombreIngrediente="";
-    private String descripcion="";
-    private double existencia=0;
-    private double precioCompra=0;
-    private double precioVenta=0;
-    private int tiempoEntregaDias=0;
-    private String formatoMedicion="";
-    private double inventarioMinimo=0;
-    private double inventarioMaximo=0;
-    private String estatusEnSistema="";
+    private int numeroIngrediente = 0;
+    private String nombreIngrediente = "";
+    private String descripcion = "";
+    private double existencia = 0;
+    private double precioCompra = 0;
+    private double precioVenta = 0;
+    private int tiempoEntregaDias = 0;
+    private String formatoMedicion = "";
+    private double inventarioMinimo = 0;
+    private double inventarioMaximo = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroIngrediente() {
         return numeroIngrediente;
@@ -117,26 +117,28 @@ public class Ingrediente extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output= this.getNumeroIngrediente()+";"+this.getNombreIngrediente()+";"+this.getDescripcion()+";"+this.getExistencia()+";"+this.getPrecioCompra()+";"+
-                this.getPrecioVenta()+";"+this.getTiempoEntregaDias()+";"+this.getFormatoMedicion()+";"+this.getInventarioMinimo()+";"+this.getInventarioMaximo()+";"+
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroIngrediente() + ";" + this.getNombreIngrediente() + ";" + this.getDescripcion() + ";" + this.getExistencia() + ";" + this.getPrecioCompra() + ";" +
+                this.getPrecioVenta() + ";" + this.getTiempoEntregaDias() + ";" + this.getFormatoMedicion() + ";" + this.getInventarioMinimo() + ";" + this.getInventarioMaximo() + ";" +
                 this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
-        output.put("NumeroIngrediente",this.getNumeroIngrediente());
-        output.put("NombreIngrediente",this.getNombreIngrediente());
-        output.put("Descripcion",this.getDescripcion());
-        output.put("Existencia",this.getExistencia());
-        output.put("PrecioCompra",this.precioCompra);
-        output.put("PrecioVenta",this.getPrecioVenta());
-        output.put("TiempoDeEntregaEnDias",this.getTiempoEntregaDias());
-        output.put("FormatoMedicion",this.getFormatoMedicion());
-        output.put("InventarioMaximo",this.getInventarioMaximo());
-        output.put("InventarioMinimo",this.getInventarioMinimo());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroIngrediente", this.getNumeroIngrediente());
+        output.put("NombreIngrediente", this.getNombreIngrediente());
+        output.put("Descripcion", this.getDescripcion());
+        output.put("Existencia", this.getExistencia());
+        output.put("PrecioCompra", this.precioCompra);
+        output.put("PrecioVenta", this.getPrecioVenta());
+        output.put("TiempoDeEntregaEnDias", this.getTiempoEntregaDias());
+        output.put("FormatoMedicion", this.getFormatoMedicion());
+        output.put("InventarioMaximo", this.getInventarioMaximo());
+        output.put("InventarioMinimo", this.getInventarioMinimo());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

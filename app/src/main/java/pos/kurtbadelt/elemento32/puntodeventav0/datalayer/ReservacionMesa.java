@@ -10,12 +10,12 @@ public class ReservacionMesa extends DataLayerObject {
 
 
     private String nombreTabla = "ReservacionMesa";
-    private int mesa_numeroMesa=0;
-    private int mesa_Empleado_NumeroEmpleado=0;
-    private int mesa_Empleado_NumeroTipoEmpleado=0;
-    private int mesa_NumeroTipoMesa=0;
-    private int reservaciones_NumeroReservacion=0;
-    private String estatusEnSistema="";
+    private int mesa_numeroMesa = 0;
+    private int mesa_Empleado_NumeroEmpleado = 0;
+    private int mesa_Empleado_NumeroTipoEmpleado = 0;
+    private int mesa_NumeroTipoMesa = 0;
+    private int reservaciones_NumeroReservacion = 0;
+    private String estatusEnSistema = "";
 
     public int getMesa_numeroMesa() {
         return mesa_numeroMesa;
@@ -72,21 +72,23 @@ public class ReservacionMesa extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getMesa_numeroMesa()+";"+this.getMesa_Empleado_NumeroTipoEmpleado()+";"+this.getMesa_NumeroTipoMesa()+";"+
-                this.getReservaciones_NumeroReservacion()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getMesa_numeroMesa() + ";" + this.getMesa_Empleado_NumeroTipoEmpleado() + ";" + this.getMesa_NumeroTipoMesa() + ";" +
+                this.getReservaciones_NumeroReservacion() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("Mesa_NumeroDeMesa",this.getMesa_numeroMesa());
-        output.put("Mesa_Empleado_NumeroEmpleado",this.getMesa_Empleado_NumeroEmpleado());
-        output.put("Mesa_Empleado_NumeroTipoEmpleado",this.getMesa_Empleado_NumeroTipoEmpleado());
-        output.put("Mesa_NumeroTipoMesa",this.getMesa_NumeroTipoMesa());
-        output.put("Reservaciones_NumeroReservacion",this.getReservaciones_NumeroReservacion());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("Mesa_NumeroDeMesa", this.getMesa_numeroMesa());
+        output.put("Mesa_Empleado_NumeroEmpleado", this.getMesa_Empleado_NumeroEmpleado());
+        output.put("Mesa_Empleado_NumeroTipoEmpleado", this.getMesa_Empleado_NumeroTipoEmpleado());
+        output.put("Mesa_NumeroTipoMesa", this.getMesa_NumeroTipoMesa());
+        output.put("Reservaciones_NumeroReservacion", this.getReservaciones_NumeroReservacion());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 

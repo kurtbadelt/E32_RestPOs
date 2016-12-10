@@ -9,13 +9,13 @@ import android.content.ContentValues;
 public class Mesa extends DataLayerObject {
 
     private String nombreTabla = "Mesa";
-    private int numeroDeMesa=0;
-    private int numeroDeComensales=0;
-    private int empleado_NumeroEmpleado=0;
-    private int empleado_NumeroTipoEmpleado=0;
-    private int comensales_NumeroComensal=0;
-    private int tipoMesa_NumeroTipoMesa=0;
-    private String estatusEnSistema="";
+    private int numeroDeMesa = 0;
+    private int numeroDeComensales = 0;
+    private int empleado_NumeroEmpleado = 0;
+    private int empleado_NumeroTipoEmpleado = 0;
+    private int comensales_NumeroComensal = 0;
+    private int tipoMesa_NumeroTipoMesa = 0;
+    private String estatusEnSistema = "";
 
     public int getNumeroDeMesa() {
         return numeroDeMesa;
@@ -80,22 +80,24 @@ public class Mesa extends DataLayerObject {
     public void setEstatusEnSistema(String estatusEnSistema) {
         this.estatusEnSistema = estatusEnSistema;
     }
-    public String toString(){
-        String output="";
-        output=this.getNumeroDeMesa()+";"+this.getNumeroDeComensales()+";"+this.getEmpleado_NumeroEmpleado()+";"+
-                this.getEmpleado_NumeroTipoEmpleado()+";"+this.getComensales_NumeroComensal()+";"+this.getTipoMesa_NumeroTipoMesa()+";"+this.getEstatusEnSistema();
+
+    public String toString() {
+        String output = "";
+        output = this.getNumeroDeMesa() + ";" + this.getNumeroDeComensales() + ";" + this.getEmpleado_NumeroEmpleado() + ";" +
+                this.getEmpleado_NumeroTipoEmpleado() + ";" + this.getComensales_NumeroComensal() + ";" + this.getTipoMesa_NumeroTipoMesa() + ";" + this.getEstatusEnSistema();
         return output;
     }
-    public ContentValues toDB(){
+
+    public ContentValues toDB() {
         ContentValues output = new ContentValues();
 
-        output.put("NumeroDeMesa",this.getNumeroDeMesa());
-        output.put("NumeroComensales",this.getNumeroDeComensales());
-        output.put("Empleado_NumeroEmpleado",this.getEmpleado_NumeroEmpleado());
-        output.put("Empleado_NumeroTipoEmpleado",this.getEmpleado_NumeroTipoEmpleado());
-        output.put("Comensales_NumeroComensal",this.getComensales_NumeroComensal());
-        output.put("TipoMesa_NumeroTipoMesa",this.getTipoMesa_NumeroTipoMesa());
-        output.put("EstatusEnSistema",this.getEstatusEnSistema());
+        output.put("NumeroDeMesa", this.getNumeroDeMesa());
+        output.put("NumeroComensales", this.getNumeroDeComensales());
+        output.put("Empleado_NumeroEmpleado", this.getEmpleado_NumeroEmpleado());
+        output.put("Empleado_NumeroTipoEmpleado", this.getEmpleado_NumeroTipoEmpleado());
+        output.put("Comensales_NumeroComensal", this.getComensales_NumeroComensal());
+        output.put("TipoMesa_NumeroTipoMesa", this.getTipoMesa_NumeroTipoMesa());
+        output.put("EstatusEnSistema", this.getEstatusEnSistema());
 
         return output;
 
