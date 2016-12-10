@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
-        android:text="Ver Empleados"
+        android:id="@+id/buttonViewEmpleados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonViewEmpleados" />
+        android:text="Ver Empleados" />
 
     <Button
-        android:text="Ver TIpo Mesa"
+        android:id="@+id/buttonViewTipoMesa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonViewTipoMesa" />
+        android:text="Ver TIpo Mesa" />
 </LinearLayout>

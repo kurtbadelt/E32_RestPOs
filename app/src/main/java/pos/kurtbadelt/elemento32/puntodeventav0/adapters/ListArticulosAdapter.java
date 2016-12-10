@@ -19,9 +19,9 @@ public class ListArticulosAdapter extends BaseAdapter {
     private Context mContext;
     private List<Articulo> listaArticulos;
 
-    public ListArticulosAdapter(Context context, List<Articulo> listaArticulos) {
-        this.mContext = context;
-        this.listaArticulos = listaArticulos;
+    public ListArticulosAdapter(Context mContext, List<Articulo> mListaArticulos) {
+        this.mContext = mContext;
+        this.listaArticulos = mListaArticulos;
     }
 
     @Override
@@ -41,6 +41,7 @@ public class ListArticulosAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         View vista = View.inflate(mContext, R.layout.articulos_listview, null);
 
         TextView tvNumeroArticulo = (TextView) vista.findViewById(R.id.tv_Articulos_NumeroArticulo);
@@ -48,7 +49,12 @@ public class ListArticulosAdapter extends BaseAdapter {
         TextView tvDescripcionArticulo = (TextView) vista.findViewById(R.id.tv_Articulos_DescripcionArticulo);
         TextView tvPrecio = (TextView) vista.findViewById(R.id.tv_Articulos_PrecioArticulo);
 
-        return null;
+        tvNumeroArticulo.setText("#: "+listaArticulos.get(i).getNumeroArticulo());
+        tvNombreArticulo.setText(listaArticulos.get(i).getNombreArticulo());
+        tvDescripcionArticulo.setText(listaArticulos.get(i).getDescripcion());
+        tvPrecio.setText("$ "+listaArticulos.get(i).getDescripcion());
+
+        return vista;
     }
 
     public void updateList(List<Articulo> listaArticulos) {

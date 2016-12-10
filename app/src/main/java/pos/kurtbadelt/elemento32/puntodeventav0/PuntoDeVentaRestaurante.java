@@ -15,15 +15,20 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
+import pos.kurtbadelt.elemento32.puntodeventav0.adapters.ListArticulosAdapter;
 import pos.kurtbadelt.elemento32.puntodeventav0.adapters.ListEmpleadoAdapter;
 import pos.kurtbadelt.elemento32.puntodeventav0.adapters.ListTipoMesaAdapter;
 import pos.kurtbadelt.elemento32.puntodeventav0.databaselayer.*;
+import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.Articulo;
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.Empleado;
 import pos.kurtbadelt.elemento32.puntodeventav0.datalayer.TipoMesa;
 
 public class PuntoDeVentaRestaurante extends AppCompatActivity {
     private ListView lvEmpleado;
+    private ListView lvArticulo;
 
+    private ListArticulosAdapter articulosAdapter;
+    private List<Articulo> mArticuloList;
 
     private ListEmpleadoAdapter empleadoAdapter;
     private List<Empleado> mEmpleadoList;
@@ -39,6 +44,7 @@ public class PuntoDeVentaRestaurante extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lvEmpleado = (ListView) findViewById(R.id.listview_empleado);
+        lvArticulo = (ListView) findViewById(R.id.listview_articulos);
 
 
         mDBHelper = new DatabaseHelper(this);
@@ -58,17 +64,19 @@ public class PuntoDeVentaRestaurante extends AppCompatActivity {
 
         // Leer base de datos
         mEmpleadoList = mDBHelper.getAllEmpleados();
+        mArticuloList = mDBHelper.getAllArticulo();
 
 
         // Iniciar adaptador
         empleadoAdapter = new ListEmpleadoAdapter(this,mEmpleadoList);
-
+        articulosAdapter = new ListArticulosAdapter(this,mArticuloList);
 
         //Set Adaptador
         lvEmpleado.setAdapter(empleadoAdapter);
+        lvArticulo.setAdapter(articulosAdapter);
 
 
-
+        registerForContextMenu(lvArticulo);
         registerForContextMenu(lvEmpleado);
 
 

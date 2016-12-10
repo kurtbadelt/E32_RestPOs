@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         openDatabase();
         Cursor cursor = mDatabase.rawQuery("select * from Articulos where EstatusEnSistema='Activo'", null);
         cursor.moveToFirst();
+        Log.i("****GetAllArticulo",""+cursor.getCount());
         while (!cursor.isAfterLast()) {
             articulo = new Articulo();
 
@@ -119,6 +121,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         closeDatabase();
+
+
         return listaArticulos;
     }
 
@@ -438,6 +442,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         openDatabase();
         Cursor cursor = mDatabase.rawQuery("select * from Empleado where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
+        Log.i("****getAllEmpleados/",""+cursor.getCount());
         while (!cursor.isAfterLast()) {
             empleado = new Empleado();
 
