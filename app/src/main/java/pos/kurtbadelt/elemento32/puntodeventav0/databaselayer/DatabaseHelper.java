@@ -442,7 +442,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         openDatabase();
         Cursor cursor = mDatabase.rawQuery("select * from Empleado where EstatusEnSistema = 'Activo'", null);
         cursor.moveToFirst();
-        Log.i("****getAllEmpleados/",""+cursor.getCount());
         while (!cursor.isAfterLast()) {
             empleado = new Empleado();
 

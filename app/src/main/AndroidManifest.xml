@@ -18,6 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NavegarDB">
+            <intent-filter>
+                <action android:name="pos.kurtbadelt.elemento32.puntodeventav0.NavegarDB" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".activity_Empleados">
+            <intent-filter>
+                <action android:name="pos.kurtbadelt.elemento32.puntodeventav0.activity_Empleados" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
